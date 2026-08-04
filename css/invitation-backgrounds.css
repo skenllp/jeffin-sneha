@@ -6,9 +6,10 @@
    ========================================================================== */
 
 :root {
-  --bg-page-1: url('../assets/backgrounds/page-1.jpg'); /* ivory · floral corners · ring watermark */
-  --bg-page-2: url('../assets/backgrounds/page-2.jpg'); /* maroon · cover page · church + monogram */
+  --bg-page-1: url('../assets/backgrounds/page-1.jpg'); /* ivory · floral corners · butterfly · ring watermark — invitation section */
+  --bg-page-2: url('../assets/backgrounds/page-2.jpg'); /* maroon · cover page · church + monogram (baked-in text) */
   --bg-page-3: url('../assets/backgrounds/page-3.jpg'); /* ivory · rings + church, open centre */
+  --bg-page-4: url('../assets/backgrounds/page-4-footer.jpg'); /* maroon · clean/open centre, footer-only */
   --bg-fill: #F8F2EA;
   --bg-overlay: rgba(255, 248, 240, 0.12);
 }
@@ -64,17 +65,8 @@ footer#thankyou .footer-content { max-width: 520px; }
 }
 
 /* ==========================================================================
-   PAGE-2 (maroon cover) — Hero, Opening Invitation (gate), Footer
+   PAGE-2 (maroon cover) — Hero, Opening Invitation (gate)
    ========================================================================== */
-
-#gate,
-.hero__bg-img,
-footer#thankyou {
-  background-image: var(--bg-page-2);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: var(--bg-fill);
-}
 
 /* Subtle readability veil, artwork stays fully visible */
 #gate::before {
@@ -83,12 +75,8 @@ footer#thankyou {
 .hero__overlay {
   background: var(--bg-overlay);
 }
-footer#thankyou .footer-pattern {
-  background: var(--bg-overlay);
-}
 
-/* Hero photo no longer needs the ivory-page sepia treatment — let the
-   maroon artwork read clearly through the light veil above */
+/* Hero photo — couple.jpg; keep sepia filter off so the photo reads naturally */
 .hero__bg-img {
   filter: none;
 }
@@ -96,23 +84,16 @@ footer#thankyou .footer-pattern {
   background: var(--bg-fill);
 }
 
-/* The cover artwork already carries its own printed monogram, names and
-   quote. To stop the live overlay text (same content, different type)
-   from double-exposing against that printed text, the overlay sits on a
-   soft plaque that quietly dims the art immediately behind it while
-   still letting the corners, borders and church illustration show. */
 .hero__stage {
   position: relative;
   z-index: 2;
   max-width: 620px;
-  background: rgba(40, 13, 17, 0.78);
-  border: 1px solid rgba(201, 161, 74, 0.3);
+  background: transparent;
+  border: none;
   padding: 48px 40px 56px;
 }
 @media (max-width: 640px) {
   .hero__stage { padding: 36px 22px 64px; }
-  /* keep the betrothal/marriage date line from overflowing the narrower
-     plaque width on small phones */
   .hero__date { flex-wrap: wrap; row-gap: 6px; }
 }
 
@@ -139,6 +120,20 @@ footer#thankyou .footer-pattern {
 
 footer#thankyou {
   color: var(--ivory);
+}
+
+/* ==========================================================================
+   PAGE-4 (maroon, clean centre) — Footer only
+   ========================================================================== */
+
+footer#thankyou {
+  background-image: var(--bg-page-4);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--bg-fill);
+}
+footer#thankyou .footer-pattern {
+  background: var(--bg-overlay);
 }
 
 /* ==========================================================================
@@ -197,7 +192,7 @@ footer#thankyou {
    ========================================================================== */
 
 #gallery {
-  background-image: var(--bg-page-1);
+  background-image: var(--bg-page-3);
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--bg-fill);
@@ -210,13 +205,13 @@ footer#thankyou {
   background-position: center;
 }
 .gallery-item--tall {
-  background-image: var(--bg-page-1);
+  background-image: var(--bg-page-3);
 }
 .gallery-item--right-top {
   background-image: var(--bg-page-3);
 }
 .gallery-item--right-bottom {
-  background-image: var(--bg-page-1);
+  background-image: var(--bg-page-3);
 }
 
 /* ==========================================================================
@@ -253,7 +248,6 @@ footer#thankyou {
    ========================================================================== */
 
 @media (min-width: 901px) {
-  #gate,
   .hero__bg-img,
   #invitation,
   #calendar,
@@ -265,7 +259,6 @@ footer#thankyou {
 }
 
 @media (max-width: 900px) {
-  #gate,
   .hero__bg-img,
   #invitation,
   #calendar,
