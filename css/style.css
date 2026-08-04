@@ -456,7 +456,7 @@ section {
   background-size: cover;
   background-position: center 30%;
   background-repeat: no-repeat;
-  filter: sepia(0.55) saturate(0.7) brightness(1.12) contrast(0.92);
+  filter: none;
   transform: scale(1.04);
   transition: transform 8s ease-out;
 }
@@ -464,7 +464,7 @@ section {
 .hero__overlay {
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at center, rgba(78,26,32,0.35) 0%, rgba(78,26,32,0.65) 100%);
+    radial-gradient(circle at center, rgba(78,26,32,0.55) 0%, rgba(78,26,32,0.78) 100%);
 }
 .hero__floaters { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
 .floater { position: absolute; color: var(--gold); opacity: 0.55; font-size: 1rem; }
@@ -509,19 +509,13 @@ section {
   gap: 14px;
   margin: 26px auto 14px;
   padding: 20px 44px;
-  background: var(--maroon-gradient);
-  box-shadow: var(--shadow-lift);
+  background: transparent;
+  box-shadow: none;
 }
 .hero__ribbon::before,
 .hero__ribbon::after {
-  content: '';
-  position: absolute;
-  top: 6px; bottom: 6px;
-  width: 1px;
-  background: rgba(221,186,103,0.5);
+  content: none;
 }
-.hero__ribbon::before { left: 10px; }
-.hero__ribbon::after { right: 10px; }
 .hero__ribbon-heart {
   position: absolute;
   bottom: -11px;
