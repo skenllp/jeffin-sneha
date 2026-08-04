@@ -418,7 +418,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 140px 24px 100px;
+  padding: 80px 24px 60px;
   text-align: center;
   background: var(--ivory);
 }
@@ -454,7 +454,7 @@ section {
   position: absolute; inset: 0;
   background-image: url('../assets/images/couple.jpg');
   background-size: cover;
-  background-position: center 30%;
+  background-position: center top;
   background-repeat: no-repeat;
   filter: none;
   transform: scale(1.04);
@@ -463,8 +463,7 @@ section {
 .hero__bg-img.is-visible { transform: scale(1); }
 .hero__overlay {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at center, rgba(78,26,32,0.55) 0%, rgba(78,26,32,0.78) 100%);
+  background: linear-gradient(180deg, rgba(78,26,32,0.45) 0%, rgba(78,26,32,0.7) 100%);
 }
 .hero__floaters { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
 .floater { position: absolute; color: var(--gold); opacity: 0.55; font-size: 1rem; }
@@ -523,7 +522,7 @@ section {
   transform: translateX(-50%);
   color: var(--gold);
   font-size: 0.7rem;
-  background: var(--ivory);
+  background: transparent;
   padding: 0 8px;
 }
 
@@ -531,8 +530,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
 /* Individual name block (groom / bride) — no background card */
