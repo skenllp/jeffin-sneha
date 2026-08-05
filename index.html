@@ -1,568 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sneha &amp; Jeffin — Betrothal &amp; Wedding</title>
-  <meta name="description"
-    content="With joy and gratitude, we invite you to celebrate the Betrothal of Sneha &amp; Jeffin on Sunday, 18th October 2026 in Coimbatore, and their Marriage on Wednesday, 21st October 2026 at St. Mary's Church, Kannoth, Kozhikode." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sneha &amp; Jeffin — Betrothal &amp; Wedding Invitation</title>
+<meta name="description" content="With joy and gratitude, we invite you to celebrate the Betrothal of Sneha &amp; Jeffin on Sunday, 18th October 2026 in Coimbatore, and their Marriage on Wednesday, 21st October 2026.">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Sneha &amp; Jeffin — Betrothal &amp; Wedding" />
-  <meta property="og:description"
-    content="Join us as we celebrate our Betrothal on 18th October 2026 and our Marriage on 21st October 2026." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://jeffin-sneha.skenllp.com/" />
-  <meta property="og:image" content="https://jeffin-sneha.skenllp.com/assets/images/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Sneha &amp; Jeffin — Betrothal 18 Oct 2026 &amp; Wedding 21 Oct 2026" />
+<!-- Open Graph / WhatsApp preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jeffin-sneha.skenllp.com/">
+<meta property="og:title" content="Sneha &amp; Jeffin — Betrothal &amp; Wedding Invitation">
+<meta property="og:description" content="Betrothal • 18 Oct 2026 • Coimbatore — Marriage • 21 Oct 2026 • St. Mary's Church, Kozhikode.">
+<meta property="og:image" content="https://jeffin-sneha.skenllp.com/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Sneha &amp; Jeffin — Betrothal &amp; Wedding" />
-  <meta name="twitter:description" content="Betrothal • 18 Oct 2026 • Coimbatore  —  Marriage • 21 Oct 2026 • St. Mary's Church, Kozhikode" />
-  <meta name="twitter:image" content="https://jeffin-sneha.skenllp.com/assets/images/og-image.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://jeffin-sneha.skenllp.com/" />
+<!-- Self-hosted script font -->
+<link rel="preload" href="assets/fonts/EdwardianScriptITC.woff2" as="font" type="font/woff2" crossorigin>
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%BF%3C/text%3E%3C/svg%3E" />
-
-  <!-- Preconnects -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <!-- Google Fonts: Cormorant Garamond & Cinzel (headings), Lora (body), Great Vibes & Allura (calligraphy names) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Allura&display=swap"
-    rel="stylesheet" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-  <link rel="stylesheet" href="css/invitation-backgrounds.css" />
-
-  <meta name="theme-color" content="#F8F2EA" />
+<link rel="stylesheet" href="css/style.css">
 </head>
+<body>
 
-<body class="gate-active">
+<!-- Floating flowers layer -->
+<div id="floating-flowers" class="floating-flowers" aria-hidden="true"></div>
 
-  <!-- ===================== PRELOADER ===================== -->
-  <div id="preloader">
-    <div class="preloader-logo shimmer-gold">S &amp; J</div>
-    <div class="preloader-spinner"></div>
+<!-- Background music -->
+<audio id="bg-music" loop preload="auto">
+  <source src="assets/audio/background-music.mp3" type="audio/mpeg" />
+</audio>
+
+<!-- Mute / Unmute button -->
+<button id="mute-btn" class="mute-btn" aria-label="Toggle music" title="Toggle music">
+  <svg id="icon-sound" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+  </svg>
+  <svg id="icon-muted" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+    <line x1="23" y1="9" x2="17" y2="15"></line>
+    <line x1="17" y1="9" x2="23" y2="15"></line>
+  </svg>
+</button>
+
+<!-- Texture Overlay -->
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar" id="scrollProgressBar"></div></div>
+
+<!-- ===================== GATE / INTRO SCREEN ===================== -->
+<section id="gate" class="gate" aria-label="Invitation opening screen">
+  <canvas id="gateCanvas" class="gate__canvas" aria-hidden="true"></canvas>
+  <div class="gate__parallax" id="gateParallax" aria-hidden="true"></div>
+
+  <!-- Left door panel -->
+  <div class="gate__panel gate__panel--left">
+    <svg class="gate__arch" viewBox="0 0 300 800" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M300,800 L300,0 L0,0 L0,500 C0,260 90,90 300,60 Z" fill="rgba(74,23,28,0.95)"/>
+      <path d="M0,500 C0,260 90,90 300,60" fill="none" stroke="var(--gold)" stroke-width="2"/>
+      <line class="gate__shimmer" x1="260" y1="0" x2="260" y2="800" stroke="rgba(200,164,77,0.22)" stroke-width="1"/>
+      <line class="gate__shimmer gate__shimmer--2" x1="240" y1="0" x2="240" y2="800" stroke="rgba(200,164,77,0.12)" stroke-width="1"/>
+    </svg>
   </div>
 
-  <!-- ===================== OPENING GATE ===================== -->
-  <div id="gate">
-    <div class="gate-pattern" aria-hidden="true"></div>
-    <button type="button" id="gate-enter" class="gate-content" aria-label="Tap to open the invitation">
-      <span class="gate-corner tl"></span>
-      <span class="gate-corner tr"></span>
-      <span class="gate-corner bl"></span>
-      <span class="gate-corner br"></span>
+  <!-- Right door panel -->
+  <div class="gate__panel gate__panel--right">
+    <svg class="gate__arch" viewBox="0 0 300 800" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,800 L0,0 L300,0 L300,500 C300,260 210,90 0,60 Z" fill="rgba(74,23,28,0.95)"/>
+      <path d="M300,500 C300,260 210,90 0,60" fill="none" stroke="var(--gold)" stroke-width="2"/>
+      <line class="gate__shimmer" x1="40" y1="0" x2="40" y2="800" stroke="rgba(200,164,77,0.22)" stroke-width="1"/>
+      <line class="gate__shimmer gate__shimmer--2" x1="60" y1="0" x2="60" y2="800" stroke="rgba(200,164,77,0.12)" stroke-width="1"/>
+    </svg>
+  </div>
 
-      <span class="gate-bismillah-en">
-        "It is not good for the man to live alone.<br />
-        I will make a suitable companion to help him."
-      </span>
-      <span class="quote-source" style="margin-top:-6px;">Genesis 2:18</span>
+  <div class="gate__content">
+    <div class="gate__bismillah" aria-label="Scripture Quote">
+      <p class="gate__bismillah-arabic" style="font-family: var(--font-script); font-size: clamp(1.4rem, 4vw, 2rem); font-style: italic; color: #FAF0D4;">
+        "It is not good for the man to live alone.<br>I will make a suitable companion to help him."
+      </p>
+      <p class="gate__bismillah-translit">Genesis 2:18</p>
+    </div>
 
-      <span class="gate-ornament">
-        <span class="gate-line"></span>
-        <span class="gate-diamond">✿</span>
-        <span class="gate-line"></span>
-      </span>
+    <div class="gate__divider-ornament" aria-hidden="true">
+      <span></span><i></i><span></span>
+    </div>
 
-      <span class="gate-names">Sneha &amp; Jeffin</span>
+    <svg class="gate__flourish" viewBox="0 0 200 50" aria-hidden="true">
+      <path class="gate__flourish-path" d="M10 25 C30 8, 55 42, 80 25 C105 8, 120 42, 145 25 C165 8, 180 42, 190 25" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/>
+      <circle class="gate__flourish-dot" cx="100" cy="25" r="3" fill="var(--gold)"/>
+      <circle class="gate__flourish-dot" cx="40" cy="28" r="1.8" fill="var(--gold-soft)" opacity="0.7"/>
+      <circle class="gate__flourish-dot" cx="160" cy="28" r="1.8" fill="var(--gold-soft)" opacity="0.7"/>
+    </svg>
 
-      <span class="gate-tap">
-        <span class="gate-tap-ring"></span>
-        <span class="gate-tap-icon"><i class="fas fa-envelope-open-text" aria-hidden="true"></i></span>
-      </span>
-      <span class="gate-tap-text">Tap to Open Invitation</span>
+    <p class="gate__eyebrow">The Betrothal &amp; Wedding Of</p>
+
+    <h1 class="gate__names" aria-label="Sneha and Jeffin">
+      <span class="gate__name-word" id="gateName1" aria-hidden="true"></span>
+      <span class="gate__amp gate__amp--animate" aria-hidden="true">&amp;</span>
+      <span class="gate__name-word" id="gateName2" aria-hidden="true"></span>
+    </h1>
+
+    <p class="gate__date">
+      <span class="gate__date-seg">18</span><span class="dot">·</span><span class="gate__date-seg">10</span><span class="dot">·</span><span class="gate__date-seg">2026</span>
+    </p>
+
+    <button id="gateButton" class="gate__button" type="button">
+      <span class="gate__button-ring"></span>
+      <span class="gate__button-ring gate__button-ring--2"></span>
+      <span class="gate__button-label">Open Invitation</span>
     </button>
+
+    <p class="gate__tap-hint" aria-hidden="true">tap to open</p>
   </div>
+</section>
 
-  <!-- ===================== GRAIN OVERLAY ===================== -->
-  <div class="grain-overlay" aria-hidden="true"></div>
+<!-- ===================== MAIN INVITATION ===================== -->
+<main id="invitation" class="invitation" aria-hidden="true">
 
-  <!-- ===================== SIDE NAV DOTS ===================== -->
-  <nav class="side-nav" aria-label="Section navigation">
-    <a href="#hero" class="side-nav__dot" data-label="Welcome" aria-current="true"></a>
-    <a href="#invitation" class="side-nav__dot" data-label="Invitation"></a>
-    <a href="#calendar" class="side-nav__dot" data-label="Calendar"></a>
-    <a href="#countdown" class="side-nav__dot" data-label="Countdown"></a>
-    <a href="#gallery" class="side-nav__dot" data-label="Gallery"></a>
-    <!-- <a href="#rsvp" class="side-nav__dot" data-label="RSVP"></a> -->
-  </nav>
+  <svg class="corner corner--tl" viewBox="0 0 160 160" aria-hidden="true"><use href="#ornament-corner"/></svg>
+  <svg class="corner corner--br" viewBox="0 0 160 160" aria-hidden="true"><use href="#ornament-corner"/></svg>
 
-  <!-- ===================== TOP NAV ===================== -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-logo shimmer-gold">S &amp; J</div>
-  </nav>
+  <!-- ============ HERO ============ -->
+  <section class="section hero" id="hero">
+    <div class="hero__overlay" aria-hidden="true"></div>
 
-  <!-- Floral edge decorations (left & right, non-covering) -->
-  <div class="floral-edge floral-edge--left" aria-hidden="true">
-    <svg viewBox="0 0 120 800" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10,0 C60,120 20,260 55,380 C85,480 15,600 45,800" fill="none" stroke="currentColor" stroke-width="1.4"/>
-      <circle cx="55" cy="120" r="5"/><circle cx="30" cy="240" r="4"/><circle cx="60" cy="380" r="6"/>
-      <circle cx="25" cy="520" r="4"/><circle cx="50" cy="660" r="5"/><circle cx="35" cy="760" r="4"/>
-    </svg>
-  </div>
-  <div class="floral-edge floral-edge--right" aria-hidden="true">
-    <svg viewBox="0 0 120 800" xmlns="http://www.w3.org/2000/svg">
-      <path d="M110,0 C60,120 100,260 65,380 C35,480 105,600 75,800" fill="none" stroke="currentColor" stroke-width="1.4"/>
-      <circle cx="65" cy="120" r="5"/><circle cx="90" cy="240" r="4"/><circle cx="60" cy="380" r="6"/>
-      <circle cx="95" cy="520" r="4"/><circle cx="70" cy="660" r="5"/><circle cx="85" cy="760" r="4"/>
-    </svg>
-  </div>
-
-  <!-- ===================== HERO TRANSITION OVERLAY ===================== -->
-  <div class="hero-transition-overlay" id="heroTransitionOverlay" aria-hidden="true"></div>
-
-  <!-- ===================== HERO ===================== -->
-  <section id="hero" class="hero">
-    <div class="hero__frame" aria-hidden="true">
-      <span class="hero__corner hero__corner--tl">
-        <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><path d="M4,4 C30,6 46,20 50,44 M4,4 C6,30 20,46 44,50" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="44" r="3"/><circle cx="44" cy="50" r="3"/><path d="M4,4 L26,4 M4,4 L4,26" stroke="currentColor" stroke-width="1.1"/></svg>
-      </span>
-      <span class="hero__corner hero__corner--tr">
-        <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><path d="M86,4 C60,6 44,20 40,44 M86,4 C84,30 70,46 46,50" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="40" cy="44" r="3"/><circle cx="46" cy="50" r="3"/><path d="M86,4 L64,4 M86,4 L86,26" stroke="currentColor" stroke-width="1.1"/></svg>
-      </span>
-      <span class="hero__corner hero__corner--bl">
-        <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><path d="M4,86 C30,84 46,70 50,46 M4,86 C6,60 20,44 44,40" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="50" cy="46" r="3"/><circle cx="44" cy="40" r="3"/><path d="M4,86 L26,86 M4,86 L4,64" stroke="currentColor" stroke-width="1.1"/></svg>
-      </span>
-      <span class="hero__corner hero__corner--br">
-        <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><path d="M86,86 C60,84 44,70 40,46 M86,86 C84,60 70,44 46,40" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="40" cy="46" r="3"/><circle cx="46" cy="40" r="3"/><path d="M86,86 L64,86 M86,86 L86,64" stroke="currentColor" stroke-width="1.1"/></svg>
-      </span>
+    <div class="hero__petals" aria-hidden="true">
+      <span class="petal petal--1"></span>
+      <span class="petal petal--2"></span>
+      <span class="petal petal--3"></span>
+      <span class="petal petal--4"></span>
+      <span class="petal petal--5"></span>
     </div>
 
-    <div class="hero__backdrop" aria-hidden="true">
-      <div class="hero__bg-img"></div>
-      <div class="hero__overlay"></div>
+    <div class="hero__inner reveal">
+      <p class="hero__eyebrow">Kindly join us for the betrothal ceremony of</p>
+
+      <h1 class="hero__names">
+        <span class="hero__name-line">Sneha</span>
+        <span class="hero__amp-line">&amp;</span>
+        <span class="hero__name-line">Jeffin</span>
+      </h1>
+
+      <p class="hero__meta">October 18, 2026 &bull; Coimbatore</p>
+
+      <a href="#details" class="hero__cta">View Details</a>
     </div>
 
-    <div class="hero__floaters" aria-hidden="true">
-      <span class="floater floater--1">✦</span>
-      <span class="floater floater--2">✦</span>
-      <span class="floater floater--3">✦</span>
-    </div>
-
-    <div class="hero__stage">
-      <div class="hero__monogram reveal-item" data-reveal="1">S &amp; J</div>
-      <p class="eyebrow reveal-item" data-reveal="1">Betrothal &amp; Wedding</p>
-
-      <div class="hero__ribbon reveal-item" data-reveal="2">
-        <div class="hero__names">
-          <div class="hero__name-block hero__name-block--groom">
-            <span class="hero__name">Sneha</span>
-          </div>
-          <span class="hero__amp">&amp;</span>
-          <div class="hero__name-block hero__name-block--bride">
-            <span class="hero__name">Jeffin</span>
-          </div>
-        </div>
-        <span class="hero__ribbon-heart">&#10084;</span>
-      </div>
-      <span class="hero__name-line"></span>
-
-      <div class="hero__date reveal-item" data-reveal="3">
-        <span>Betrothal · 18 Oct</span>
-      </div>
-
-      <p class="hero__venue-line reveal-item" data-reveal="4">Coimbatore</p>
-    </div>
-
-    <a href="#invitation" class="scroll-cue" id="scrollCue" aria-label="Scroll to next section">
-      <span class="scroll-cue__stem"></span>
+    <button class="scroll-cue" id="scrollCue" type="button" aria-label="Scroll to explore">
+      <span class="scroll-cue__line"></span>
       <span class="scroll-cue__text">Scroll</span>
-    </a>
+    </button>
   </section>
 
-  <!-- ===================== INVITATION ===================== -->
-  <section id="invitation">
-    <div class="section-bg-pattern" aria-hidden="true"></div>
-    <div class="invitation-content">
-      <!-- <span class="section-eyebrow" data-aos="fade-up">You Are Cordially Invited</span> -->
-      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">A Blessed Union</h2>
+  <!-- ============ SCRIPTURE BLESSING ============ -->
+  <section class="section ayah" id="ayah">
+    <div class="ayah__frame reveal">
+      <svg class="glyph glyph--star" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 2 L23 17 L38 20 L23 23 L20 38 L17 23 L2 20 L17 17 Z" fill="var(--gold)"/>
+      </svg>
+      <p class="ayah__arabic" style="font-family: var(--font-script); font-size: clamp(1.5rem, 3.5vw, 2.2rem); color: var(--gold-dark); line-height: 1.5; margin-bottom: 12px;">
+        "With immense joy and gratitude to God, the families of Sneha and Jeffin warmly invite you to share in the blessings of their union."
+      </p>
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+      <p class="ayah__translation">
+        "It is not good for the man to live alone. I will make a suitable companion to help him."
+      </p>
+      <p class="ayah__ref">Holy Bible &bull; Genesis 2:18</p>
+    </div>
+  </section>
 
-      <div class="ornament-divider" data-aos="fade-in" data-aos-delay="200">
-        <span class="ornament-line"></span>
-        <span class="ornament-flower">✿</span>
-        <span class="ornament-line right"></span>
+  <!-- ============ THE COUPLE ============ -->
+  <section class="section couple" id="couple">
+    <div class="couple__head reveal">
+      <p class="eyebrow">Brought Together by Faith &amp; Family</p>
+      <h2 class="section-title">The Couple</h2>
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+    </div>
+
+    <div class="couple__grid reveal">
+
+      <!-- Bride -->
+      <article class="couple-card couple-card--bride">
+        <div class="couple-card__badge" style="width:110px; height:110px; border-radius:50%; border:2px solid var(--gold); margin:0 auto 16px; overflow:hidden; box-shadow:0 6px 18px rgba(110,35,43,0.15);">
+          <img src="assets/images/sneha.png" alt="Sneha" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+        <p class="couple-card__role">The Bride</p>
+        <h3 class="couple-card__name">Sneha</h3>
+        <div class="divider divider--small"><span></span><i></i><span></span></div>
+        <p class="couple-card__relation">Granddaughter of</p>
+        <p class="couple-card__parents" style="font-size:0.95rem;">Late Mrs. C.V. Kunjannakutty &amp; Late Mr. C.M. Cheriyakku<br>Mrs. Saramma Manuel &amp; Late Mr. P.J. Manuel</p>
+        <p class="couple-card__relation" style="margin-top:12px;">Daughter of</p>
+        <p class="couple-card__parents">Mrs. Vineetha Unni &amp; Mr. C.C. Unni</p>
+        <p class="couple-card__address">Cheruvathoor House, 'Srimat', #27 Park Town, Edayarpalayam, Kuniyamuthur, Coimbatore</p>
+      </article>
+
+      <!-- Centre ornament -->
+      <div class="couple__sep" aria-hidden="true">
+        <span class="couple__sep-line"></span>
+        <svg class="couple__sep-icon" viewBox="0 0 40 40" width="32" height="32">
+          <path d="M20 2 L23 17 L38 20 L23 23 L20 38 L17 23 L2 20 L17 17 Z" fill="var(--gold)"/>
+        </svg>
+        <span class="couple__sep-line"></span>
       </div>
 
-      <p class="invitation-lede" data-aos="fade-up" data-aos-delay="150">
-        With immense joy and gratitude to God,
-the families of Sneha and Jeffin
-warmly invite you, along with your family and friends, to celebrate their Betrothal Ceremony and Marriage, and share in the blessings of this beautiful beginning.
+      <!-- Groom -->
+      <article class="couple-card couple-card--groom">
+        <div class="couple-card__badge" style="width:110px; height:110px; border-radius:50%; border:2px solid var(--gold); margin:0 auto 16px; overflow:hidden; box-shadow:0 6px 18px rgba(110,35,43,0.15);">
+          <img src="assets/images/jeffin.png" alt="Jeffin" style="width:100%; height:100%; object-fit:cover;" />
+        </div>
+        <p class="couple-card__role">The Groom</p>
+        <h3 class="couple-card__name">Jeffin</h3>
+        <div class="divider divider--small"><span></span><i></i><span></span></div>
+        <p class="couple-card__relation">Son of</p>
+        <p class="couple-card__parents">Mrs. Lissy Shaju &amp; Mr. Shaju George</p>
+        <p class="couple-card__address">Palakkattu House, Kuppayakode, Kodenchery, Kozhikode</p>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ STORY MEDALLION ============ -->
+  <section class="section story" id="story">
+    <div class="story__inner reveal">
+
+      <!-- Medallion: petals rotate independently, initials stay upright -->
+      <div class="medallion" role="img" aria-label="Sneha and Jeffin monogram">
+        <svg class="medallion__rings" viewBox="0 0 320 320" aria-hidden="true">
+          <circle cx="160" cy="160" r="154" fill="none" stroke="var(--gold-pale)" stroke-width=".8"/>
+          <circle cx="160" cy="160" r="146" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+          <circle cx="160" cy="160" r="140" fill="none" stroke="var(--gold-soft)" stroke-width=".6"/>
+          <circle cx="160" cy="160" r="82" fill="none" stroke="var(--gold-pale)" stroke-width=".8"/>
+        </svg>
+
+        <svg class="medallion__petals-svg" viewBox="0 0 320 320" aria-hidden="true">
+          <g class="medallion__petals">
+            <path d="M160 60 C182 95 182 125 160 148 C138 125 138 95 160 60Z" fill="var(--emerald)" opacity="0.88"/>
+            <path d="M160 60 C182 95 182 125 160 148 C138 125 138 95 160 60Z" fill="var(--emerald)" opacity="0.88" transform="rotate(60 160 160)"/>
+            <path d="M160 60 C182 95 182 125 160 148 C138 125 138 95 160 60Z" fill="var(--emerald)" opacity="0.88" transform="rotate(120 160 160)"/>
+            <path d="M160 60 C182 95 182 125 160 148 C138 125 138 95 160 60Z" fill="var(--emerald)" opacity="0.88" transform="rotate(180 160 160)"/>
+            <path d="M160 60 C182 95 182 125 160 148 C138 125 138 95 160 60Z" fill="var(--emerald)" opacity="0.88" transform="rotate(240 160 160)"/>
+            <path d="M160 60 C182 95 182 125 160 148 C138 125 138 95 160 60Z" fill="var(--emerald)" opacity="0.88" transform="rotate(300 160 160)"/>
+          </g>
+        </svg>
+
+        <svg class="medallion__initials-svg" viewBox="0 0 320 320" aria-hidden="true">
+          <text x="160" y="168" text-anchor="middle" class="medallion__text">S &amp; J</text>
+        </svg>
+      </div>
+
+      <!-- Corner accent lines -->
+      <div class="story__corners" aria-hidden="true">
+        <svg class="story__corner story__corner--tl" viewBox="0 0 40 40"><path d="M38 2 L2 2 L2 38" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M34 2 L2 2 L2 34" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="story__corner story__corner--tr" viewBox="0 0 40 40"><path d="M2 2 L38 2 L38 38" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M6 2 L38 2 L38 34" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="story__corner story__corner--bl" viewBox="0 0 40 40"><path d="M38 38 L2 38 L2 2" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M34 38 L2 38 L2 6" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="story__corner story__corner--br" viewBox="0 0 40 40"><path d="M2 38 L38 38 L38 2" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M6 38 L38 38 L38 6" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+      </div>
+
+      <h2 class="story__title">Two Families, One Blessing</h2>
+      <p class="story__text">
+        With hearts full of gratitude to Almighty God, the families of Sneha and Jeffin joyfully come together to begin this sacred new chapter. Surrounded by the love and prayers of both families, we warmly invite you to be part of our betrothal ceremony and the holy marriage celebrations that follow.
       </p>
 
-      <!-- Groom & Bride cards -->
-      <div class="couple-cards">
-        <div class="couple-card" data-aos="fade-right">
-          <div class="couple-card__photo">
-            <img src="assets/images/sneha.png" alt="Sneha" loading="lazy" />
-          </div>
-          <p class="couple-card__label">The Bride</p>
-          <h3 class="couple-card__name">Sneha</h3>
-          <div class="couple-card__parents">
-            Grand daughter of<br />
-            Late Mrs. C.V. Kunjannakutty &amp; Late Mr. C.M. Cheriyakku<br />
-            Mrs. Saramma Manuel &amp; Late Mr. P.J. Manuel<br /><br />
-            <strong>Daughter of</strong><br />
-            Mrs. Vineetha Unni &amp; Mr. C.C. Unni<br />
-            <span class="couple-card__address">Cheruvathoor House, 'Srimat', #27 Park Town, Edayarpalayam, Kuniyamuthur, Coimbatore</span>
-          </div>
-        </div>
+    </div>
+  </section>
 
-        <div class="couple-card__amp" aria-hidden="true">&amp;</div>
+  <!-- ============ DETAILS + COUNTDOWN ============ -->
+  <section class="section details" id="details">
+    <div class="details__head reveal">
+      <p class="eyebrow">Save The Dates</p>
+      <h2 class="section-title">The Celebration</h2>
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+    </div>
 
-        <div class="couple-card" data-aos="fade-left">
-          <div class="couple-card__photo">
-            <img src="assets/images/jeffin.png" alt="Jeffin" loading="lazy" />
+    <!-- Betrothal Card -->
+    <div class="celebration-card reveal" style="margin-bottom:32px;">
+      <div class="celebration-card__corners" aria-hidden="true">
+        <svg class="celebration-card__corner celebration-card__corner--tl" viewBox="0 0 40 40"><path d="M38 2 L2 2 L2 38" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M34 2 L2 2 L2 34" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="celebration-card__corner celebration-card__corner--tr" viewBox="0 0 40 40"><path d="M2 2 L38 2 L38 38" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M6 2 L38 2 L38 34" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="celebration-card__corner celebration-card__corner--bl" viewBox="0 0 40 40"><path d="M38 38 L2 38 L2 2" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M34 38 L2 38 L2 6" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="celebration-card__corner celebration-card__corner--br" viewBox="0 0 40 40"><path d="M2 38 L38 38 L38 2" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M6 38 L38 38 L38 6" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+      </div>
+
+      <svg class="celebration-card__icon" viewBox="0 0 60 60" aria-hidden="true">
+        <path d="M30 8 L34 26 L52 30 L34 34 L30 52 L26 34 L8 30 L26 26 Z" fill="none" stroke="var(--gold)" stroke-width="1.5"/>
+      </svg>
+
+      <p class="celebration-card__label">Betrothal Ceremony</p>
+      <p class="celebration-card__date">Sunday, 18 October 2026</p>
+      <p class="celebration-card__time">12:00 Noon, followed by lunch</p>
+
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+
+      <p class="celebration-card__venue">Sri Lakshmi Balaji Thirumana Mandapam<br>Palakkad Main Road, Marapalam, Coimbatore</p>
+
+      <div class="countdown" id="countdown" aria-live="polite">
+        <p class="countdown__label">Counting Down To The Betrothal</p>
+        <div class="countdown__grid">
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cd-days">00</span>
+            <span class="countdown__word">Days</span>
           </div>
-          <p class="couple-card__label">The Groom</p>
-          <h3 class="couple-card__name">Jeffin</h3>
-          <div class="couple-card__parents">
-            <strong>Son of</strong><br />
-            Mrs. Lissy Shaju &amp; Mr. Shaju George<br />
-            <span class="couple-card__address">Palakkattu House, Kuppayakode, Kodenchery, Kozhikode</span>
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cd-hours">00</span>
+            <span class="countdown__word">Hours</span>
+          </div>
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cd-mins">00</span>
+            <span class="countdown__word">Minutes</span>
+          </div>
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cd-secs">00</span>
+            <span class="countdown__word">Seconds</span>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Marriage Card -->
+    <div class="celebration-card reveal">
+      <div class="celebration-card__corners" aria-hidden="true">
+        <svg class="celebration-card__corner celebration-card__corner--tl" viewBox="0 0 40 40"><path d="M38 2 L2 2 L2 38" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M34 2 L2 2 L2 34" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="celebration-card__corner celebration-card__corner--tr" viewBox="0 0 40 40"><path d="M2 2 L38 2 L38 38" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M6 2 L38 2 L38 34" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="celebration-card__corner celebration-card__corner--bl" viewBox="0 0 40 40"><path d="M38 38 L2 38 L2 2" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M34 38 L2 38 L2 6" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+        <svg class="celebration-card__corner celebration-card__corner--br" viewBox="0 0 40 40"><path d="M2 38 L38 38 L38 2" fill="none" stroke="var(--gold)" stroke-width="1"/><path d="M6 38 L38 38 L38 6" fill="none" stroke="var(--gold-pale)" stroke-width=".5"/></svg>
+      </div>
+
+      <p class="celebration-card__label">Marriage</p>
+      <p class="celebration-card__date">Wednesday, 21 October 2026</p>
+      <p class="celebration-card__time">4:00 PM</p>
+
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+
+      <p class="celebration-card__venue">St. Mary's Church, Kannoth, Kozhikode</p>
+    </div>
+
   </section>
 
-  <!-- ===================== MARK YOUR CALENDAR ===================== -->
-  <section id="calendar">
-    <div class="calendar-bg" aria-hidden="true"></div>
-    <div class="calendar-content">
-      <!-- <span class="section-eyebrow" data-aos="fade-up" style="color:var(--gold-dark);">Save The Date</span> -->
-      <h2 class="section-title section-title--light" data-aos="fade-up" data-aos-delay="100">Mark Your Calendar</h2>
-
-      <div class="ornament-divider" data-aos="fade-in" data-aos-delay="200" style="justify-content:center;">
-        <span class="ornament-line" style="background:linear-gradient(90deg,transparent,var(--gold));"></span>
-        <span class="ornament-flower" style="color:var(--gold);">✿</span>
-        <span class="ornament-line right" style="background:linear-gradient(90deg,var(--gold),transparent);"></span>
+  <!-- ============ VENUE ============ -->
+  <section class="section venue" id="venue">
+    <div class="venue__head reveal">
+      <p class="eyebrow">Join Us At</p>
+      <h2 class="section-title">Sri Lakshmi Balaji Thirumana Mandapam</h2>
+      <div class="venue__pin">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="var(--gold)" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        <p class="venue__address">Palakkad Main Road, Marapalam, Coimbatore</p>
       </div>
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+    </div>
 
-      <div class="calendar-card" data-aos="fade-up" data-aos-delay="150">
-        <span class="calendar-badge">Betrothal Ceremony</span>
-
-        <div class="calendar-date">
-          <span class="calendar-date__day">Sunday</span>
-          <span class="calendar-date__full">18 October 2026</span>
-        </div>
-
-        <div class="calendar-detail">
-          <div class="calendar-detail__icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
-          <div class="calendar-detail__text">
-            <span class="calendar-detail__label">Time</span>
-            <span class="calendar-detail__value">12:00 Noon, followed by lunch</span>
-          </div>
-        </div>
-
-        <div class="calendar-detail">
-          <div class="calendar-detail__icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
-          <div class="calendar-detail__text">
-            <span class="calendar-detail__label">Venue</span>
-            <span class="calendar-detail__value">Sri Lakshmi Balaji Thirumana Mandapam, Palakkad Main Road, Marapalam, Coimbatore</span>
-          </div>
-        </div>
-
-        <a href="https://www.google.com/maps/search/?api=1&query=Sri+Lakshmi+Balaji+Thirumana+Mandapam+Marapalam+Coimbatore"
-          target="_blank" rel="noopener noreferrer" class="maps-btn" aria-label="Open Betrothal venue in Google Maps">
-          <i class="fas fa-map" aria-hidden="true"></i>
-          Open in Google Maps
-        </a>
-      </div>
-
-      <div class="calendar-card" data-aos="fade-up" data-aos-delay="250" style="margin-top:32px;">
-        <span class="calendar-badge">Marriage</span>
-
-        <div class="calendar-date">
-          <span class="calendar-date__day">Wednesday</span>
-          <span class="calendar-date__full">21 October 2026</span>
-        </div>
-
-        <div class="calendar-detail">
-          <div class="calendar-detail__icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
-          <div class="calendar-detail__text">
-            <span class="calendar-detail__label">Time</span>
-            <span class="calendar-detail__value">4:00 PM</span>
-          </div>
-        </div>
-
-        <div class="calendar-detail">
-          <div class="calendar-detail__icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
-          <div class="calendar-detail__text">
-            <span class="calendar-detail__label">Venue</span>
-            <span class="calendar-detail__value">St. Mary's Church, Kannoth, Kozhikode</span>
-          </div>
-        </div>
-
-        <a href="https://www.google.com/maps/search/?api=1&query=St+Mary%27s+Church+Kannoth+Kozhikode"
-          target="_blank" rel="noopener noreferrer" class="maps-btn" aria-label="Open Marriage venue in Google Maps">
-          <i class="fas fa-map" aria-hidden="true"></i>
-          Open in Google Maps
-        </a>
+    <div class="venue__map reveal">
+      <div class="venue__map-frame">
+        <iframe
+          title="Map to Sri Lakshmi Balaji Thirumana Mandapam, Coimbatore"
+          src="https://www.google.com/maps?q=Sri+Lakshmi+Balaji+Thirumana+Mandapam+Marapalam+Coimbatore&z=15&output=embed"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+        <div class="venue__map-glow" aria-hidden="true"></div>
       </div>
     </div>
-  </section>
 
-  <!-- ===================== COUNTDOWN ===================== -->
-  <section id="countdown">
-    <div class="countdown-bg" aria-hidden="true"></div>
-    <div class="countdown-content">
-      <span class="section-eyebrow" data-aos="fade-up">The Big Day Awaits</span>
-      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Counting Down to the Betrothal</h2>
-
-      <div class="ornament-divider" data-aos="fade-in" data-aos-delay="200">
-        <span class="ornament-line"></span>
-        <span class="ornament-flower">✿</span>
-        <span class="ornament-line right"></span>
-      </div>
-
-      <div class="countdown-grid" data-aos="fade-up" data-aos-delay="200" id="countdownGrid">
-        <div class="countdown-item">
-          <div class="countdown-box">
-            <span class="countdown-number" id="cd-days">00</span>
-            <span class="countdown-label">Days</span>
-          </div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-box">
-            <span class="countdown-number" id="cd-hours">00</span>
-            <span class="countdown-label">Hours</span>
-          </div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-box">
-            <span class="countdown-number" id="cd-minutes">00</span>
-            <span class="countdown-label">Minutes</span>
-          </div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-box">
-            <span class="countdown-number" id="cd-seconds">00</span>
-            <span class="countdown-label">Seconds</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="countdown-complete" id="countdownComplete" hidden data-aos="fade-up">
-        The celebration has begun!
-      </p>
-
-      <p class="countdown-sub" data-aos="fade-up" data-aos-delay="400">
-        18th October 2026 &bull; 12:00 Noon &bull; Sri Lakshmi Balaji Thirumana Mandapam, Coimbatore
-      </p>
-    </div>
-  </section>
-
-  <!-- ===================== GALLERY ===================== -->
-  <section id="gallery">
-    <div class="section-bg-pattern" aria-hidden="true"></div>
-    <div class="gallery-content">
-      <span class="section-eyebrow" data-aos="fade-up">A Few Favourite Frames</span>
-      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Gallery</h2>
-
-      <div class="ornament-divider" data-aos="fade-in" data-aos-delay="200">
-        <span class="ornament-line"></span>
-        <span class="ornament-flower">✿</span>
-        <span class="ornament-line right"></span>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item gallery-item--big" data-aos="scale-in" data-index="0">
-          <img data-src="assets/images/couple.jpg" alt="Sneha &amp; Jeffin" loading="lazy" />
-        </div>
-        <div class="gallery-item gallery-item--tall" data-aos="scale-in" data-aos-delay="100" data-index="1">
-          <img data-src="assets/images/gallery-1.jpg" alt="Sneha &amp; Jeffin" loading="lazy" />
-        </div>
-        <div class="gallery-item gallery-item--tall" data-aos="scale-in" data-aos-delay="150" data-index="2">
-          <img data-src="assets/images/groom.jpg" alt="Jeffin" loading="lazy" />
-        </div>
-        <div class="gallery-item gallery-item--tall" data-aos="scale-in" data-aos-delay="100" data-index="3">
-          <img data-src="assets/images/couple-gallery.jpg" alt="Sneha &amp; Jeffin" loading="lazy" />
-        </div>
-        <div class="gallery-item gallery-item--tall" data-aos="scale-in" data-aos-delay="150" data-index="4">
-          <img data-src="assets/images/gallery-2.jpg" alt="Sneha &amp; Jeffin" loading="lazy" />
-        </div>
-        <div class="gallery-item gallery-item--tall" data-aos="scale-in" data-aos-delay="200" data-index="5">
-          <img data-src="assets/images/gallery-3.jpg" alt="Sneha &amp; Jeffin" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== QUOTE (commented out) =====================
-  <section id="quote-section">
-    <div class="quote-bg" aria-hidden="true"></div>
-    <div class="quote-content">
-      <span class="quote-mark" data-aos="fade-in" aria-hidden="true">&#8220;</span>
-      <p class="quote-translation" data-aos="fade-up" style="font-size:clamp(1.3rem, 3vw, 1.7rem);">
-        "It is not good for the man to live alone.<br />I will make a suitable companion to help him."
-      </p>
-      <span class="quote-source" data-aos="fade-up" data-aos-delay="200">&mdash; Genesis 2:18</span>
-    </div>
-  </section>
-  ========================== END QUOTE COMMENT ========================== -->
-
-  <!-- ===================== RSVP (commented out) =====================
-  <section id="rsvp">
-    <div class="section-bg-pattern" aria-hidden="true"></div>
-    <div class="rsvp-content">
-      <span class="section-eyebrow" data-aos="fade-up">Kindly Respond</span>
-      <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">RSVP</h2>
-
-      <div class="ornament-divider" data-aos="fade-in" data-aos-delay="200">
-        <span class="ornament-line"></span>
-        <span class="ornament-flower">✿</span>
-        <span class="ornament-line right"></span>
-      </div>
-
-      <p class="rsvp-lede" data-aos="fade-up" data-aos-delay="150">
-        Your presence would mean the world to us. Please let us know if you can join the celebration.
-      </p>
-
-      <form id="rsvp-form" class="rsvp-form" data-aos="fade-up" data-aos-delay="200" novalidate>
-        <div class="rsvp-grid">
-          <div class="rsvp-field">
-            <label for="rsvp-name">Name</label>
-            <input type="text" id="rsvp-name" name="name" placeholder="Your full name" required />
-          </div>
-
-          <div class="rsvp-field">
-            <label for="rsvp-mobile">Mobile Number</label>
-            <input type="tel" id="rsvp-mobile" name="mobile" placeholder="+91 00000 00000" required />
-          </div>
-
-          <div class="rsvp-field">
-            <label for="rsvp-email">Email</label>
-            <input type="email" id="rsvp-email" name="email" placeholder="you@example.com" />
-          </div>
-
-          <div class="rsvp-field">
-            <label for="rsvp-guests">Guest Count</label>
-            <input type="number" id="rsvp-guests" name="guests" min="1" max="10" value="1" required />
-          </div>
-
-          <div class="rsvp-field">
-            <label for="rsvp-side">Attending As</label>
-            <select id="rsvp-side" name="side" required>
-              <option value="" disabled selected>Select one</option>
-              <option value="Bride Side">Bride Side</option>
-              <option value="Groom Side">Groom Side</option>
-            </select>
-          </div>
-
-          <div class="rsvp-field">
-            <label for="rsvp-attend">Will You Attend?</label>
-            <select id="rsvp-attend" name="attend" required>
-              <option value="" disabled selected>Select one</option>
-              <option value="Joyfully Accepts">Joyfully Accepts</option>
-              <option value="Regretfully Declines">Regretfully Declines</option>
-            </select>
-          </div>
-
-          <div class="rsvp-field rsvp-field--full">
-            <label for="rsvp-message">Message for the Couple</label>
-            <textarea id="rsvp-message" name="message" rows="3" placeholder="Leave your wishes and blessings..."></textarea>
-          </div>
-        </div>
-
-        <button type="submit" class="rsvp-btn">
-          <span>Send RSVP</span>
-          <i class="fas fa-paper-plane" aria-hidden="true"></i>
-        </button>
-      </form>
-
-      <div class="rsvp-popup" id="rsvpPopup" aria-hidden="true">
-        <div class="rsvp-popup__card">
-          <span class="rsvp-popup__icon">✓</span>
-          <h3>Thank You!</h3>
-          <p>Your response has been recorded. We can't wait to celebrate with you.</p>
-          <button type="button" class="rsvp-popup__close" id="rsvpPopupClose">Close</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  ========================== END RSVP COMMENT ========================== -->
-
-  <!-- ===================== THANK YOU / FOOTER ===================== -->
-  <footer id="thankyou">
-    <div class="footer-pattern" aria-hidden="true"></div>
-    <div class="footer-content">
-      <span class="footer-eyebrow" data-aos="fade-up">✿</span>
-      <p class="footer-thanks" data-aos="fade-up" data-aos-delay="100">Thank You</p>
-
-      <p class="footer-names" data-aos="fade-up" data-aos-delay="150">
-        Sneha &amp; Jeffin
-      </p>
-
-      <p class="footer-date" data-aos="fade-up" data-aos-delay="200">
-        Betrothal &middot; 18 October 2026 &nbsp;|&nbsp; Marriage &middot; 21 October 2026
-      </p>
-
-      <div class="footer-divider" data-aos="fade-in" data-aos-delay="300"></div>
-
-      <p class="footer-quote" data-aos="fade-up" data-aos-delay="300">
-        "May God bless this union with love, grace and lasting peace."
-      </p>
-
-      <p class="footer-compliments" data-aos="fade-up" data-aos-delay="400">
-        With Best Compliments From<br />
-        <span>Cheruvathoor Family</span>
-      </p>
-
-      <a href="tel:+919442018267" class="maps-btn footer-maps-btn" data-aos="fade-up" data-aos-delay="450">
-        <i class="fas fa-phone"></i> +91 94420 18267 &nbsp;|&nbsp; +91 63743 69623
+    <div class="venue__actions reveal">
+      <a class="button button--outline" href="https://www.google.com/maps/search/?api=1&query=Sri+Lakshmi+Balaji+Thirumana+Mandapam+Marapalam+Coimbatore" target="_blank" rel="noopener">
+        <svg class="button__icon" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        Get Directions
       </a>
+      <a class="button button--ghost" href="https://www.google.com/maps/search/?api=1&query=St+Mary%27s+Church+Kannoth+Kozhikode" target="_blank" rel="noopener">
+        Marriage Venue (Kozhikode) Map
+      </a>
+    </div>
+  </section>
 
-      <p class="footer-bottom" data-aos="fade-in" data-aos-delay="500">
-        Made with <span class="footer-heart">&#9829;</span> for Sneha &amp; Jeffin's blessed union
-      </p>
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery">
+    <div class="gallery__head reveal">
+      <p class="eyebrow">Cherished Moments</p>
+      <h2 class="section-title">Photo Gallery</h2>
+    </div>
+    <div class="gallery__grid">
+      <figure class="gallery__item reveal" style="padding: 10px; background: var(--paper-deep); border: 1px solid var(--gold); border-radius: 4px;">
+        <img src="assets/images/couple.jpg" alt="Sneha &amp; Jeffin" style="width: 100%; height: 260px; object-fit: cover; border-radius: 2px;" />
+        <figcaption style="font-family: var(--font-script); font-size: 1.1rem; color: var(--gold-dark); text-align: center; margin-top: 8px;">Sneha &amp; Jeffin</figcaption>
+      </figure>
+      <figure class="gallery__item reveal" style="padding: 10px; background: var(--paper-deep); border: 1px solid var(--gold); border-radius: 4px;">
+        <img src="assets/images/gallery-1.jpg" alt="Sneha &amp; Jeffin" style="width: 100%; height: 260px; object-fit: cover; border-radius: 2px;" />
+        <figcaption style="font-family: var(--font-script); font-size: 1.1rem; color: var(--gold-dark); text-align: center; margin-top: 8px;">Blessed Together</figcaption>
+      </figure>
+      <figure class="gallery__item reveal" style="padding: 10px; background: var(--paper-deep); border: 1px solid var(--gold); border-radius: 4px;">
+        <img src="assets/images/groom.jpg" alt="Jeffin" style="width: 100%; height: 260px; object-fit: cover; border-radius: 2px;" />
+        <figcaption style="font-family: var(--font-script); font-size: 1.1rem; color: var(--gold-dark); text-align: center; margin-top: 8px;">Jeffin</figcaption>
+      </figure>
+      <figure class="gallery__item reveal" style="padding: 10px; background: var(--paper-deep); border: 1px solid var(--gold); border-radius: 4px;">
+        <img src="assets/images/couple-gallery.jpg" alt="Sneha &amp; Jeffin" style="width: 100%; height: 260px; object-fit: cover; border-radius: 2px;" />
+        <figcaption style="font-family: var(--font-script); font-size: 1.1rem; color: var(--gold-dark); text-align: center; margin-top: 8px;">Special Frames</figcaption>
+      </figure>
+      <figure class="gallery__item reveal" style="padding: 10px; background: var(--paper-deep); border: 1px solid var(--gold); border-radius: 4px;">
+        <img src="assets/images/gallery-2.jpg" alt="Sneha &amp; Jeffin" style="width: 100%; height: 260px; object-fit: cover; border-radius: 2px;" />
+        <figcaption style="font-family: var(--font-script); font-size: 1.1rem; color: var(--gold-dark); text-align: center; margin-top: 8px;">Cherished Memories</figcaption>
+      </figure>
+      <figure class="gallery__item reveal" style="padding: 10px; background: var(--paper-deep); border: 1px solid var(--gold); border-radius: 4px;">
+        <img src="assets/images/gallery-3.jpg" alt="Sneha &amp; Jeffin" style="width: 100%; height: 260px; object-fit: cover; border-radius: 2px;" />
+        <figcaption style="font-family: var(--font-script); font-size: 1.1rem; color: var(--gold-dark); text-align: center; margin-top: 8px;">Moments of Joy</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ RSVP ============ -->
+  <section class="section rsvp" id="rsvp">
+    <div class="rsvp__head reveal">
+      <p class="eyebrow">Kindly Reply</p>
+      <h2 class="section-title">RSVP</h2>
+      <p class="rsvp__sub">Let us know if you'll be joining us — your presence means the world to us.</p>
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+    </div>
+
+    <form class="rsvp__form reveal" id="rsvpForm" novalidate>
+      <fieldset class="rsvp__attendance" id="rsvpAttendance">
+        <legend class="rsvp__attendance-legend">Will you attend?</legend>
+        <label class="rsvp__attend-btn" id="btnYes">
+          <input type="radio" name="attendance" value="yes" checked>
+          <span class="rsvp__attend-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <span>Joyfully Accepts</span>
+        </label>
+        <label class="rsvp__attend-btn" id="btnNo">
+          <input type="radio" name="attendance" value="no">
+          <span class="rsvp__attend-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </span>
+          <span>Regretfully Declines</span>
+        </label>
+      </fieldset>
+
+      <div class="rsvp__field">
+        <label class="rsvp__label" for="rsvpName">Your Name</label>
+        <input class="rsvp__input" type="text" id="rsvpName" name="name" autocomplete="name" required placeholder="Full Name">
+      </div>
+
+      <div class="rsvp__field">
+        <label class="rsvp__label" for="rsvpCount">Number of Guests</label>
+        <div class="rsvp__counter">
+          <button type="button" class="rsvp__counter-btn" id="rsvpMinus" aria-label="Decrease">−</button>
+          <input class="rsvp__counter-input" type="number" id="rsvpCount" name="count" value="1" min="1" max="10" readonly>
+          <button type="button" class="rsvp__counter-btn" id="rsvpPlus" aria-label="Increase">+</button>
+        </div>
+      </div>
+
+      <div class="rsvp__field">
+        <label class="rsvp__label" for="rsvpMessage">Message <span class="rsvp__optional">(optional)</span></label>
+        <textarea class="rsvp__input rsvp__textarea" id="rsvpMessage" name="message" placeholder="A short note or blessing for Sneha &amp; Jeffin..." rows="3"></textarea>
+      </div>
+
+      <button type="submit" class="rsvp__submit" id="rsvpSubmit">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        Send via WhatsApp
+      </button>
+    </form>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="section footer" id="footer">
+    <div class="footer__inner reveal">
+      <svg class="glyph glyph--star" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 2 L23 17 L38 20 L23 23 L20 38 L17 23 L2 20 L17 17 Z" fill="var(--gold)"/>
+      </svg>
+      <h2 class="footer__names">Sneha <span class="amp">&amp;</span> Jeffin</h2>
+      <p class="footer__date">Betrothal: 18 · 10 · 2026 &nbsp;|&nbsp; Marriage: 21 · 10 · 2026</p>
+      <p class="footer__dua">"May God bless this union with love, grace, and lasting peace."</p>
+      <div class="divider divider--small"><span></span><i></i><span></span></div>
+      <p class="footer__note">With Best Compliments From:<br>Cheruvathoor Family<br>Mob: +91 94420 18267 | +91 63743 69623</p>
     </div>
   </footer>
 
-  <!-- ===================== LIGHTBOX MODAL ===================== -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
-    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
-    <button type="button" class="lightbox-arrow lightbox-arrow--left" id="lightboxPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
-    <div class="lightbox-container">
-      <img id="lightboxImg" class="lightbox-img" src="" alt="" />
-      <div id="lightboxCaption" class="lightbox-caption"></div>
-    </div>
-    <button type="button" class="lightbox-arrow lightbox-arrow--right" id="lightboxNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
-    <div class="swipe-indicator">
-      <i class="fas fa-arrows-alt-h"></i>
-      <span>Swipe to browse</span>
-    </div>
-  </div>
+</main>
 
-  <!-- ===================== BACKGROUND MUSIC ===================== -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="assets/audio/background-music.mp3" type="audio/mpeg" />
-  </audio>
-  <button type="button" id="musicToggle" class="music-toggle" aria-label="Play background music">
-    <i class="fas fa-music" aria-hidden="true"></i>
-    <span class="music-toggle__bars"></span>
-  </button>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="ornament-corner">
+      <path d="M10 150 C10 60 60 10 150 10" fill="none" stroke="var(--gold)" stroke-width="1"/>
+      <path d="M10 120 C10 75 75 10 120 10" fill="none" stroke="var(--gold-soft)" stroke-width="1"/>
+      <circle cx="10" cy="150" r="3" fill="var(--gold)"/>
+      <circle cx="150" cy="10" r="3" fill="var(--gold)"/>
+    </g>
+  </defs>
+</svg>
 
-  <!-- ===== SCRIPTS ===== -->
-  <script src="js/main.js"></script>
-  <script src="js/animations.js"></script>
-  <script src="js/countdown.js"></script>
-
+<script src="js/script.js"></script>
 </body>
-
 </html>

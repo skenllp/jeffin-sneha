@@ -1,320 +1,55 @@
 /* ==========================================================================
-   INVITATION BACKGROUNDS — Sneha & Jeffin
-   Layers the three premium invitation-card artworks across the existing
-   sections. Loaded after style.css / responsive.css so these rules win on
-   background + colour only — no markup, animation, or JS behaviour here.
+   INVITATION BACKGROUNDS — Luxury Theme & Spacing System
+   Palette: Primary Maroon (#6E232B) / Dark Maroon (#4A171C) / Luxury Gold (#C8A44D)
+            Soft Gold (#D9BC73) / Ivory (#FAF5EE) / Paper (#F8F2EA)
    ========================================================================== */
 
-:root {
-  --bg-page-1: url('../assets/backgrounds/page-3.jpg'); /* active card background */
-  --bg-page-2: url('../assets/backgrounds/page-2.jpg'); /* maroon · cover page · church + monogram */
-  --bg-page-3: url('../assets/backgrounds/page-3.jpg'); /* ivory · rings + church, open centre */
-  --bg-page-4: url('../assets/backgrounds/page-4-footer.jpg'); /* maroon · footer */
-  --bg-fill: #F8F2EA;
-  --bg-overlay: rgba(255, 248, 240, 0.12);
-}
-
-/* ---------- content width / spacing rhythm ---------- */
-#invitation,
-#calendar,
-#countdown,
-#gallery {
-  padding-top: 160px;
-  padding-bottom: 140px;
-}
-
-/* The portrait artwork is scaled with `background-size:contain`, so its
-   rendered width is driven by the section's height. To keep every card at
-   a comfortable, legible width (instead of the tall/short natural content
-   height producing a too-narrow card), each mapped section is given a
-   generous minimum height on desktop and its content is centred within
-   it — this is also what keeps the "one printed invitation page per
-   section" feel with extra vertical breathing room. Content wrappers are
-   then capped narrower than the guaranteed card width so text can never
-   spill past the artwork's border. */
-@media (min-width: 901px) {
-  #invitation,
-  #calendar,
-  #countdown,
-  #gallery,
-  footer#thankyou {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  #invitation { min-height: 1500px; }
-  #gallery { min-height: 1400px; }
-  #calendar,
-  #countdown,
-  footer#thankyou { min-height: 1300px; }
-}
-
-#invitation .invitation-content { max-width: 640px; }
-#calendar .calendar-content,
-#countdown .countdown-content { max-width: 520px; }
-#gallery .gallery-content { max-width: 560px; }
-#gallery .gallery-grid { max-width: 560px; }
-footer#thankyou .footer-content { max-width: 520px; }
-
-/* Scaled down slightly so headings reliably fit inside the narrower card
-   width without wrapping past its gold border */
-#calendar .section-title,
-#countdown .section-title {
-  font-size: clamp(1.5rem, 3.6vw, 2.2rem);
-}
-
-/* ==========================================================================
-   PAGE-2 (maroon cover) — Hero, Opening Invitation (gate)
-   ========================================================================== */
-
-/* Subtle readability veil, artwork stays fully visible */
-#gate::before {
-  background: var(--bg-overlay);
-}
-.hero__overlay {
-  background: var(--bg-overlay);
-}
-
-/* Hero photo — couple.jpg; keep sepia filter off so the photo reads naturally */
-.hero__bg-img {
-  filter: none;
-}
-.hero {
-  background: var(--bg-fill);
-}
-
-.hero__stage {
-  position: relative;
-  z-index: 2;
-  max-width: 620px;
-  background: transparent;
-  border: none;
-  padding: 48px 40px 56px;
-}
-@media (max-width: 640px) {
-  .hero__stage { padding: 36px 22px 64px; }
-  .hero__date { flex-wrap: wrap; row-gap: 6px; }
-}
-
-/* Text colours over light parchment background */
-.hero__stage .eyebrow,
-.hero__monogram {
-  color: var(--maroon);
-  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
-  letter-spacing: 0.2em;
-  text-shadow: none;
-}
-.hero__date {
-  color: var(--maroon);
-  font-size: clamp(1rem, 2.5vw, 1.15rem);
-  letter-spacing: 0.18em;
-  text-shadow: none;
-}
-.hero__date em {
-  color: var(--gold-dark);
-}
-.hero__venue-line {
-  color: var(--text);
-  font-size: clamp(1rem, 2vw, 1.1rem);
-  text-shadow: none;
-}
-.hero__name {
-  font-size: clamp(2.8rem, 8vw, 4.5rem);
-  color: var(--maroon);
-  text-shadow: none;
-}
-.hero__amp {
-  font-size: clamp(3rem, 8vw, 4.8rem);
-  color: var(--gold-dark);
-  text-shadow: none;
-}
-.hero__ribbon-heart {
-  background: transparent;
-  color: var(--gold);
-  font-size: 1rem;
-}
-.scroll-cue__text {
-  color: var(--gold-light);
-}
-
-footer#thankyou {
-  color: var(--ivory);
-}
-
-/* ==========================================================================
-   PAGE-4 (maroon, clean centre) — Footer only
-   ========================================================================== */
-
-footer#thankyou {
-  background-image: var(--bg-page-4);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: var(--bg-fill);
-}
-footer#thankyou .footer-pattern {
-  background: var(--bg-overlay);
-}
-
-/* ==========================================================================
-   PAGE-1 (ivory · floral · butterfly · rings) — ALL sections except footer and gate
-   ========================================================================== */
-
-#invitation,
-#calendar,
-#countdown,
-#gallery {
-  background-image: var(--bg-page-1);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: var(--bg-fill);
-  color: var(--text);
-}
-
-#invitation .section-bg-pattern,
-#gallery .section-bg-pattern {
-  background: var(--bg-overlay);
-}
-
-#calendar .calendar-bg,
-#countdown .countdown-bg {
-  background: var(--bg-overlay);
-}
-
-.invitation-content,
-.calendar-content,
-.countdown-content {
-  padding: 0 6%;
-}
-
-/* re-tone text for the light ivory page */
-#calendar .section-title,
-#countdown .section-title { color: var(--maroon); }
-.calendar-date__day { color: var(--gold-dark); }
-.calendar-date__full { color: var(--maroon); }
-.calendar-detail__label { color: var(--gold-dark); }
-.calendar-detail__value { color: var(--text); }
-.calendar-detail__icon { color: var(--maroon); border-color: var(--maroon); }
-.calendar-badge { color: var(--maroon-dark); }
-
-/* Gallery gets a clean dark maroon background instead of the card artwork */
-#gallery::after {
-  content: none !important;
-}
-#gallery {
-  background-image: var(--maroon-gradient) !important;
-  background-size: cover !important;
-  background-color: var(--maroon-dark);
-}
-#gallery .section-title { color: var(--gold-pale) !important; }
-#gallery .section-eyebrow { color: var(--gold-dark) !important; }
-#gallery .ornament-line { background: linear-gradient(90deg, transparent, var(--gold)) !important; }
-#gallery .ornament-line.right { background: linear-gradient(90deg, var(--gold), transparent) !important; }
-#gallery .ornament-flower { color: var(--gold) !important; }
-
-/* Gallery title — use heading serif font to match the rest */
-#gallery .section-title {
-  font-family: var(--font-heading) !important;
-  font-weight: 600;
-  font-size: clamp(2.4rem, 6vw, 3.8rem) !important;
-  font-style: italic;
-  letter-spacing: 0.02em;
-}
-#gallery .gallery-item {
-  background: transparent;
-  border: 1px solid rgba(201, 161, 74, 0.5);
-  padding: 4px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
-  border-radius: 2px;
-}
-#gallery .gallery-item::after {
-  border-color: rgba(201, 161, 74, 0.3);
-}
-
-/* ==========================================================================
-   CARDS — near-invisible, so the invitation artwork reads as the card
-   ========================================================================== */
-
-.couple-card,
-.calendar-card,
-.countdown-box {
-  background: rgba(255, 255, 255, 0.10);
-  backdrop-filter: none;
-  border: none;
-  box-shadow: none;
-}
-.couple-card::before,
-.calendar-card::before,
-.countdown-box::before {
-  border-color: rgba(201, 161, 74, 0.35);
-}
-
-/* Gate carries the same printed monogram/quote as the cover art beneath
-   it, so it gets the same dimming plaque treatment as the hero for
-   readability rather than the fully-transparent "card" treatment. */
-.gate-content {
-  background: rgba(40, 13, 17, 0.78);
-  backdrop-filter: none;
-  padding-bottom: 64px;
-}
-
-/* ==========================================================================
-   RESPONSIVE BEHAVIOUR
-   Use a pseudo-element for the background so it's perfectly contained
-   within the section bounds on all screen sizes — no overflow, no cropping.
-   ========================================================================== */
-
+/* Section Spacing & Layout Rhythm */
+#hero,
 #invitation,
 #calendar,
 #countdown,
 #gallery,
-footer#thankyou {
-  background-image: none !important;
-  position: relative;
+#rsvp {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: var(--ivory);
 }
 
+#calendar, #gallery {
+  background-color: var(--paper);
+}
+
+/* Subtle Golden Divider Accents Between Sections */
 #invitation::after,
 #calendar::after,
-#countdown::after {
+#countdown::after,
+#gallery::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: var(--bg-page-3);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 0;
-  pointer-events: none;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(400px, 80%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-luxury), transparent);
 }
 
-footer#thankyou::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: var(--bg-page-4);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  z-index: 0;
-  pointer-events: none;
+/* Content Container Max Widths */
+#invitation .invitation-content,
+#calendar .calendar-content,
+#countdown .countdown-content,
+#rsvp .rsvp-content {
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-/* ensure all direct children sit above the background pseudo-element */
-#invitation > *,
-#calendar > *,
-#countdown > *,
-#gallery > *,
-footer#thankyou > * {
-  position: relative;
-  z-index: 1;
+#gallery .gallery-content {
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
-@media (max-width: 900px) {
-  #invitation,
-  #calendar,
-  #countdown,
-  #gallery {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
+footer#thankyou .footer-content {
+  max-width: 760px;
+  margin: 0 auto;
 }

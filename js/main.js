@@ -1,42 +1,34 @@
 // ==========================================================================
-//  MAIN.JS — Gate reveal, music player, navigation utilities
+//  MAIN.JS — Luxury Invitation Interactions
+//  Gate reveal, music player, scroll progress, RSVP form, Lightbox modal
 // ==========================================================================
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initPreloader();
+  initScrollProgress();
   initGate();
   initMusicToggle();
-  initSideNav();
   initLightbox();
+  initRSVPForm();
 });
 
-/* ---- Preloader dismiss ---- */
-function initPreloader() {
-  const preloader = document.getElementById('preloader');
-  if (!preloader) return;
-  
-  // Dismiss once fully loaded
-  const dismiss = () => {
-    preloader.classList.add('loaded');
-  };
-  
-  if (document.readyState === 'complete') {
-    dismiss();
-  } else {
-    window.addEventListener('load', dismiss);
-  }
-  
-  // Fallback safety timeout
-  setTimeout(dismiss, 1600);
+/* ---- Scroll Progress Indicator ---- */
+function initScrollProgress() {
+  const progressBar = document.getElementById('scrollProgressBar');
+  if (!progressBar) return;
+
+  window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    progressBar.style.width = scrolled + '%';
+  });
 }
 
-/* ---- Opening gate (tap-to-enter welcome screen) ---- */
+/* ---- Opening Gate Cover ---- */
 function initGate() {
   const gate = document.getElementById('gate');
   const enterBtn = document.getElementById('gate-enter');
-  const overlay = document.getElementById('heroTransitionOverlay');
-  const heroBgImg = document.querySelector('.hero__bg-img');
   if (!gate || !enterBtn) return;
 
   let opened = false;
@@ -45,54 +37,23 @@ function initGate() {
     if (opened) return;
     opened = true;
 
-    // Phase 1: Activate blur/fade overlay (covers the transition)
-    if (overlay) {
-      overlay.classList.add('active');
-    }
+    gate.classList.add('gate-opened');
+    document.body.classList.remove('gate-active');
+    document.body.classList.add('page-loaded');
 
-    // Phase 2: After a short hold, start fading the gate out
-    window.setTimeout(() => {
-      gate.classList.add('gate-closing');
-      document.body.classList.remove('gate-active');
-      document.body.classList.add('page-loaded');
-    }, 300);
-
-    // Phase 3: Kick off hero bg image scale-in
-    window.setTimeout(() => {
-      if (heroBgImg) heroBgImg.classList.add('is-visible');
-    }, 500);
-
-    // Phase 4: Start fading out the transition overlay
-    window.setTimeout(() => {
-      if (overlay) {
-        overlay.classList.remove('active');
-        overlay.classList.add('fading-out');
-      }
-    }, 900);
-
-    // Phase 5: Fully hide gate and remove overlay
-    window.setTimeout(() => {
-      gate.classList.add('gate-hidden');
-      gate.setAttribute('aria-hidden', 'true');
-      if (overlay) {
-        overlay.classList.remove('fading-out');
-        overlay.style.display = 'none';
-      }
-    }, 2300);
-
-    // Attempt to auto-start music once the user has interacted with the page
+    // Auto-start music on user interaction
     const music = document.getElementById('bgMusic');
     const musicBtn = document.getElementById('musicToggle');
     if (music && musicBtn) {
       music.volume = 0.5;
       music.play()
         .then(() => musicBtn.classList.add('is-playing'))
-        .catch(() => {
-          // Autoplay blocked by the browser — the button remains available
-          // so the user can start playback manually. This mirrors standard
-          // mobile autoplay-restriction handling.
-        });
+        .catch(() => {});
     }
+
+    setTimeout(() => {
+      gate.style.display = 'none';
+    }, 1400);
   }
 
   enterBtn.addEventListener('click', openGate);
@@ -102,18 +63,9 @@ function initGate() {
       openGate();
     }
   });
-
-  // Fallback: if the gate is somehow skipped (e.g. no-JS fallback removed),
-  // never block scrolling for more than a few seconds.
-  window.setTimeout(() => {
-    if (!opened) {
-      document.body.classList.remove('gate-active');
-      if (heroBgImg) heroBgImg.classList.add('is-visible');
-    }
-  }, 8000);
 }
 
-/* ---- Music toggle ---- */
+/* ---- Music Toggle ---- */
 function initMusicToggle() {
   const btn = document.getElementById('musicToggle');
   const music = document.getElementById('bgMusic');
@@ -133,82 +85,39 @@ function initMusicToggle() {
   });
 }
 
-/* ---- Side nav dots — highlight active section on scroll ---- */
-function initSideNav() {
-  const dots = document.querySelectorAll('.side-nav__dot');
-  if (!dots.length) return;
+/* ---- RSVP Form Handling ---- */
+function initRSVPForm() {
+  const form = document.getElementById('rsvp-form');
+  const popup = document.getElementById('rsvpPopup');
+  const closeBtn = document.getElementById('rsvpPopupClose');
 
-  const targets = Array.from(dots).map((d) => {
-    const href = d.getAttribute('href');
-    return href ? document.querySelector(href) : null;
+  if (!form || !popup) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    // Simple validation check
+    const name = document.getElementById('rsvp-name').value;
+    const mobile = document.getElementById('rsvp-mobile').value;
+    if (!name || !mobile) {
+      alert('Please enter your name and mobile number.');
+      return;
+    }
+
+    popup.classList.add('active');
+    popup.setAttribute('aria-hidden', 'false');
+    form.reset();
   });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const idx = targets.indexOf(entry.target);
-          dots.forEach((d, i) => {
-            if (i === idx) d.setAttribute('aria-current', 'true');
-            else d.removeAttribute('aria-current');
-          });
-        }
-      });
-    },
-    { threshold: 0.4 }
-  );
-
-  targets.forEach((t) => {
-    if (t) observer.observe(t);
-  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      popup.classList.remove('active');
+      popup.setAttribute('aria-hidden', 'true');
+    });
+  }
 }
 
-/* ---- Top nav background on scroll ---- */
-(function initNav() {
-  const nav = document.querySelector('.nav');
-  if (!nav) return;
-
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.pageYOffset > 80);
-  });
-})();
-
-/* ---- Smooth scroll for internal anchor links ---- */
-(function initSmoothScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-})();
-
-/* ---- Soft parallax on the hero background image ---- */
-(function initHeroParallax() {
-  const heroBgImg = document.querySelector('.hero__bg-img');
-  if (!heroBgImg) return;
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const scrollY = window.pageYOffset;
-        const hero = document.getElementById('hero');
-        const heroHeight = hero ? hero.offsetHeight : 0;
-        if (scrollY < heroHeight) {
-          heroBgImg.style.transform = `scale(1) translateY(${scrollY * 0.12}px)`;
-        }
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-})();
-
-/* ---- Fullscreen Lightbox with Swipe gestures ---- */
+/* ---- Fullscreen Gallery Lightbox ---- */
 function initLightbox() {
   const lightbox = document.getElementById('lightbox');
   const img = document.getElementById('lightboxImg');
@@ -219,46 +128,29 @@ function initLightbox() {
   
   if (!lightbox || !img) return;
 
-  let currentSource = ''; // 'map' or 'gallery'
   let currentIndex = 0;
-  
   const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-  const mapCard = document.getElementById('mapCard');
 
-  // Open modal for gallery
   galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => {
-      currentSource = 'gallery';
       currentIndex = index;
       const imageEl = item.querySelector('img');
-      const src = imageEl.src || imageEl.dataset.src;
-      openLightbox(src, item.querySelector('.gallery-item__caption').textContent);
-      prevBtn.style.display = 'flex';
-      nextBtn.style.display = 'flex';
+      const src = imageEl ? (imageEl.src || imageEl.dataset.src) : '';
+      const altText = imageEl ? (imageEl.alt || 'Sneha & Jeffin') : 'Sneha & Jeffin';
+      openLightbox(src, altText);
     });
   });
 
-  // Open modal for map
-  if (mapCard) {
-    mapCard.addEventListener('click', () => {
-      currentSource = 'map';
-      const imageEl = mapCard.querySelector('img');
-      openLightbox(imageEl.src, 'Illustrated Wedding Map');
-      prevBtn.style.display = 'none';
-      nextBtn.style.display = 'none';
-    });
-  }
-
   function openLightbox(src, text) {
     img.src = src;
-    caption.textContent = text;
-    lightbox.classList.add('is-visible');
+    if (caption) caption.textContent = text;
+    lightbox.classList.add('active');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
   function closeLightbox() {
-    lightbox.classList.remove('is-visible');
+    lightbox.classList.remove('active');
     lightbox.setAttribute('aria-hidden', 'true');
     if (!document.body.classList.contains('gate-active')) {
       document.body.style.overflow = '';
@@ -266,63 +158,41 @@ function initLightbox() {
   }
 
   function showNext() {
-    if (currentSource !== 'gallery') return;
+    if (!galleryItems.length) return;
     currentIndex = (currentIndex + 1) % galleryItems.length;
     const item = galleryItems[currentIndex];
     const imageEl = item.querySelector('img');
-    img.src = imageEl.src || imageEl.dataset.src;
-    caption.textContent = item.querySelector('.gallery-item__caption').textContent;
+    if (imageEl) {
+      img.src = imageEl.src || imageEl.dataset.src;
+      if (caption) caption.textContent = imageEl.alt || 'Sneha & Jeffin';
+    }
   }
 
   function showPrev() {
-    if (currentSource !== 'gallery') return;
+    if (!galleryItems.length) return;
     currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
     const item = galleryItems[currentIndex];
     const imageEl = item.querySelector('img');
-    img.src = imageEl.src || imageEl.dataset.src;
-    caption.textContent = item.querySelector('.gallery-item__caption').textContent;
+    if (imageEl) {
+      img.src = imageEl.src || imageEl.dataset.src;
+      if (caption) caption.textContent = imageEl.alt || 'Sneha & Jeffin';
+    }
   }
 
-  // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('is-visible')) return;
+    if (!lightbox.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowRight') showNext();
     if (e.key === 'ArrowLeft') showPrev();
   });
 
-  closeBtn.addEventListener('click', closeLightbox);
-  prevBtn.addEventListener('click', showPrev);
-  nextBtn.addEventListener('click', showNext);
-  
-  // Close on backdrop click
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (prevBtn) prevBtn.addEventListener('click', showPrev);
+  if (nextBtn) nextBtn.addEventListener('click', showNext);
+
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox || e.target.classList.contains('lightbox-container')) {
       closeLightbox();
     }
   });
-
-  // Mobile Swipe gestures
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  lightbox.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  lightbox.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
-
-  function handleSwipe() {
-    const swipeThreshold = 50;
-    if (touchEndX < touchStartX - swipeThreshold) {
-      showNext();
-    }
-    if (touchEndX > touchStartX + swipeThreshold) {
-      showPrev();
-    }
-  }
 }
-
