@@ -1628,3 +1628,50 @@ a:focus-visible, button:focus-visible{
     background-position: center top !important;
   }
 }
+
+/* ===== FIX WHITE BAR & HERO FULL BLEED ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.invitation {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any top margin/padding on the hero section */
+.section.hero,
+#hero {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Ensure hero fills full viewport height with no gap */
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+}
+
+/* Fix white gap that appears after gate closes */
+.gate.is-open {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Corner SVGs should not add layout space */
+.corner {
+  position: absolute;
+  pointer-events: none;
+}
+.corner--tl { top: 0; left: 0; }
+.corner--br { bottom: 0; right: 0; }
+
+/* Main invitation wrapper — no extra space */
+main#invitation {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
