@@ -1618,24 +1618,13 @@ a:focus-visible, button:focus-visible{
     background-image:
       linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.05) 40%, rgba(0,0,0,.2) 100%),
       url('../assets/backgrounds/portrait-hero.png') !important;
-    background-size: 100% 100% !important;
     background-position: center center !important;
   }
   .gate__parallax {
     background-image: url('../assets/backgrounds/portrait-hero.png') !important;
-    background-size: 100% 100% !important;
-    background-position: center center !important;
   }
   .hero {
     background-image: url('../assets/backgrounds/portrait-hero.png') !important;
-    background-size: 100% 100% !important;
-    background-position: center center !important;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-    height: 100vh !important;
-    height: 100dvh !important;
+    background-position: center top !important;
   }
-  /* Remove any white gap above hero on mobile */
-  .invitation { padding-top: 0 !important; margin-top: 0 !important; }
-  .section.hero { margin-top: 0 !important; }
 }
