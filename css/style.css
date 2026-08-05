@@ -1675,3 +1675,105 @@ main#invitation {
   padding: 0;
   display: block;
 }
+
+/* ===== GATE FIXES — arch visibility, centered text, quote width, gold button ===== */
+
+/* 1. Show full arch — push content down so arch tip isn't cropped */
+.gate__content {
+  text-align: center !important;
+  padding: 3rem 2rem 2rem !important;
+  max-width: 340px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* 2. Narrow quote so it wraps naturally */
+.gate__bismillah {
+  max-width: 280px;
+  margin: 0 auto 0.5rem;
+  text-align: center;
+}
+.gate__bismillah-arabic,
+.gate__bismillah p {
+  font-size: clamp(1rem, 3.5vw, 1.2rem) !important;
+  line-height: 1.75;
+  text-align: center;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+/* 3. Center all gate text */
+.gate__eyebrow,
+.gate__names,
+.gate__date,
+.gate__divider-ornament,
+.gate__flourish,
+.gate__tap-hint {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 4. Bigger names */
+.gate__names {
+  font-size: clamp(2.8rem, 10vw, 5rem) !important;
+}
+
+/* 5. Gold button */
+.gate__button {
+  border-color: var(--gold-soft) !important;
+  color: var(--gold-soft) !important;
+  background: rgba(200, 164, 77, 0.08) !important;
+}
+.gate__button:hover {
+  background: rgba(200, 164, 77, 0.2) !important;
+  box-shadow: 0 0 28px rgba(203,169,104,.35), inset 0 0 20px rgba(203,169,104,.08) !important;
+}
+
+/* 6. Ensure arch panels show fully on mobile */
+@media (max-width: 768px) {
+  .gate {
+    align-items: center;
+    justify-content: center;
+  }
+  .gate__panel {
+    height: 100%;
+  }
+}
+
+/* ===== GATE CONTENT — vertical centering & quote fix ===== */
+.gate__content {
+  position: relative;
+  z-index: 3;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  padding: 0 2.5rem !important;
+  max-width: 360px !important;
+  margin: 0 auto !important;
+  gap: 0.6rem;
+  height: 100%;
+}
+
+/* Quote — constrain width so it wraps better */
+.gate__bismillah-arabic,
+.gate__bismillah p,
+.gate__content p[style] {
+  font-size: clamp(1.05rem, 3.2vw, 1.25rem) !important;
+  line-height: 1.7 !important;
+  max-width: 240px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  word-break: normal;
+}
+
+/* Genesis reference */
+.gate__bismillah-translit {
+  font-size: 0.75rem !important;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0 auto;
+  opacity: 0.8;
+}
