@@ -190,7 +190,7 @@ img, svg{ display: block; max-width: 100%; }
   background-color: #381115;
   background-image:
     linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.05) 40%, rgba(0,0,0,.2) 100%),
-    url('../assets/backgrounds/open-invitation.png');
+    url('../assets/backgrounds/page-3.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -239,7 +239,7 @@ img, svg{ display: block; max-width: 100%; }
 .gate__parallax{
   position: absolute; inset: -30px;   /* oversized so edges stay hidden while shifting */
   background-image:
-    url('../assets/backgrounds/open-invitation.png');
+    url('../assets/backgrounds/page-3.jpg');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -491,7 +491,7 @@ img, svg{ display: block; max-width: 100%; }
   position: relative;
   /* Full-bleed background image */
   background-color: #0d0d0d;
-  background-image: url('../assets/Background.webp');
+  background-image: url('../assets/backgrounds/page-3.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
