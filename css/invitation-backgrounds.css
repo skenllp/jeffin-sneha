@@ -6,10 +6,10 @@
    ========================================================================== */
 
 :root {
-  --bg-page-1: url('../assets/backgrounds/page-1.jpg'); /* ivory · floral corners · butterfly · ring watermark — invitation section */
-  --bg-page-2: url('../assets/backgrounds/page-2.jpg'); /* maroon · cover page · church + monogram (baked-in text) */
+  --bg-page-1: url('../assets/backgrounds/page-3.jpg'); /* active card background */
+  --bg-page-2: url('../assets/backgrounds/page-2.jpg'); /* maroon · cover page · church + monogram */
   --bg-page-3: url('../assets/backgrounds/page-3.jpg'); /* ivory · rings + church, open centre */
-  --bg-page-4: url('../assets/backgrounds/page-4-footer.jpg'); /* maroon · clean/open centre, footer-only */
+  --bg-page-4: url('../assets/backgrounds/page-4-footer.jpg'); /* maroon · footer */
   --bg-fill: #F8F2EA;
   --bg-overlay: rgba(255, 248, 240, 0.12);
 }
@@ -19,7 +19,7 @@
 #calendar,
 #countdown,
 #gallery {
-  padding-top: 140px;
+  padding-top: 160px;
   padding-bottom: 140px;
 }
 
@@ -97,31 +97,42 @@ footer#thankyou .footer-content { max-width: 520px; }
   .hero__date { flex-wrap: wrap; row-gap: 6px; }
 }
 
-/* Text colours over dark maroon-tinted couple photo */
+/* Text colours over light parchment background */
 .hero__stage .eyebrow,
 .hero__monogram {
-  color: var(--gold-pale);
-  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+  color: var(--maroon);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  letter-spacing: 0.2em;
+  text-shadow: none;
 }
 .hero__date {
-  color: var(--gold-pale);
-  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  color: var(--maroon);
+  font-size: clamp(1rem, 2.5vw, 1.15rem);
+  letter-spacing: 0.18em;
+  text-shadow: none;
 }
 .hero__date em {
-  color: var(--gold-light);
+  color: var(--gold-dark);
 }
 .hero__venue-line {
-  color: rgba(248, 242, 234, 0.95);
-  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  color: var(--text);
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  text-shadow: none;
 }
 .hero__name {
-  text-shadow: 0 3px 16px rgba(0,0,0,0.75);
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  color: var(--maroon);
+  text-shadow: none;
 }
 .hero__amp {
-  text-shadow: 0 3px 16px rgba(0,0,0,0.75);
+  font-size: clamp(3rem, 8vw, 4.8rem);
+  color: var(--gold-dark);
+  text-shadow: none;
 }
 .hero__ribbon-heart {
-  background: var(--maroon-dark);
+  background: transparent;
+  color: var(--gold);
+  font-size: 1rem;
 }
 .scroll-cue__text {
   color: var(--gold-light);
@@ -146,44 +157,39 @@ footer#thankyou .footer-pattern {
 }
 
 /* ==========================================================================
-   PAGE-1 (ivory · floral) — Story / Couple / Bride & Groom / Family
+   PAGE-1 (ivory · floral · butterfly · rings) — ALL sections except footer and gate
    ========================================================================== */
 
-#invitation {
-  background-image: var(--bg-page-1);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: var(--bg-fill);
-}
-#invitation .section-bg-pattern {
-  background: var(--bg-overlay);
-}
-
-/* keep content clear of the corner floral artwork */
-.invitation-content {
-  padding: 0 6%;
-}
-
-/* ==========================================================================
-   PAGE-3 (ivory · rings + church) — Betrothal, Marriage, Venue, Countdown
-   ========================================================================== */
-
+#invitation,
 #calendar,
-#countdown {
-  background-image: var(--bg-page-3);
+#countdown,
+#gallery {
+  background-image: var(--bg-page-1);
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--bg-fill);
   color: var(--text);
 }
+
+#invitation .section-bg-pattern,
+#gallery .section-bg-pattern {
+  background: var(--bg-overlay);
+}
+
 #calendar .calendar-bg,
 #countdown .countdown-bg {
   background: var(--bg-overlay);
 }
 
-/* the calendar section previously relied on a dark charcoal backdrop with
-   ivory type — re-tone for the light invitation page underneath */
-#calendar .section-title { color: var(--maroon); }
+.invitation-content,
+.calendar-content,
+.countdown-content {
+  padding: 0 6%;
+}
+
+/* re-tone text for the light ivory page */
+#calendar .section-title,
+#countdown .section-title { color: var(--maroon); }
 .calendar-date__day { color: var(--gold-dark); }
 .calendar-date__full { color: var(--maroon); }
 .calendar-detail__label { color: var(--gold-dark); }
@@ -191,36 +197,38 @@ footer#thankyou .footer-pattern {
 .calendar-detail__icon { color: var(--maroon); border-color: var(--maroon); }
 .calendar-badge { color: var(--maroon-dark); }
 
-.calendar-content,
-.countdown-content {
-  padding: 0 6%;
+/* Gallery gets a clean dark maroon background instead of the card artwork */
+#gallery::after {
+  content: none !important;
 }
-
-/* ==========================================================================
-   GALLERY — alternate page-1 / page-3 between gallery blocks
-   ========================================================================== */
-
 #gallery {
-  background-image: var(--bg-page-3);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: var(--bg-fill);
+  background-image: var(--maroon-gradient) !important;
+  background-size: cover !important;
+  background-color: var(--maroon-dark);
 }
-#gallery .section-bg-pattern {
-  background: var(--bg-overlay);
+#gallery .section-title { color: var(--gold-pale) !important; }
+#gallery .section-eyebrow { color: var(--gold-dark) !important; }
+#gallery .ornament-line { background: linear-gradient(90deg, transparent, var(--gold)) !important; }
+#gallery .ornament-line.right { background: linear-gradient(90deg, var(--gold), transparent) !important; }
+#gallery .ornament-flower { color: var(--gold) !important; }
+
+/* Gallery title — use heading serif font to match the rest */
+#gallery .section-title {
+  font-family: var(--font-heading) !important;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 3.8rem) !important;
+  font-style: italic;
+  letter-spacing: 0.02em;
 }
-.gallery-item {
-  background-size: cover;
-  background-position: center;
+#gallery .gallery-item {
+  background: transparent;
+  border: 1px solid rgba(201, 161, 74, 0.5);
+  padding: 4px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  border-radius: 2px;
 }
-.gallery-item--tall {
-  background-image: var(--bg-page-3);
-}
-.gallery-item--right-top {
-  background-image: var(--bg-page-3);
-}
-.gallery-item--right-bottom {
-  background-image: var(--bg-page-3);
+#gallery .gallery-item::after {
+  border-color: rgba(201, 161, 74, 0.3);
 }
 
 /* ==========================================================================
@@ -252,36 +260,61 @@ footer#thankyou .footer-pattern {
 
 /* ==========================================================================
    RESPONSIVE BEHAVIOUR
-   Desktop → contain (never crops the artwork), extra space filled with the
-   paper colour. Mobile → cover (artwork was designed for this ratio).
+   Use a pseudo-element for the background so it's perfectly contained
+   within the section bounds on all screen sizes — no overflow, no cropping.
    ========================================================================== */
 
-@media (min-width: 901px) {
-  .hero__bg-img,
-  #invitation,
-  #calendar,
-  #countdown,
-  #gallery,
-  footer#thankyou {
-    background-size: contain;
-  }
+#invitation,
+#calendar,
+#countdown,
+#gallery,
+footer#thankyou {
+  background-image: none !important;
+  position: relative;
+}
+
+#invitation::after,
+#calendar::after,
+#countdown::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-page-3);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+footer#thankyou::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-page-4);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ensure all direct children sit above the background pseudo-element */
+#invitation > *,
+#calendar > *,
+#countdown > *,
+#gallery > *,
+footer#thankyou > * {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 900px) {
-  .hero__bg-img,
-  #invitation,
-  #calendar,
-  #countdown,
-  #gallery,
-  footer#thankyou {
-    background-size: cover;
-  }
-
   #invitation,
   #calendar,
   #countdown,
   #gallery {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
