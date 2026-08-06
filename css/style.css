@@ -1847,3 +1847,58 @@ main#invitation {
     background-position: center 15% !important;
   }
 }
+
+/* ===== MAROON RIBBON BEHIND NAMES ===== */
+.hero__names {
+  position: relative;
+  background: linear-gradient(135deg, rgba(74, 23, 28, 0.92) 0%, rgba(110, 35, 43, 0.88) 100%) !important;
+  padding: 0.6rem 2rem !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  margin-left: -2rem !important;
+  margin-right: -2rem !important;
+  border-top: 1px solid rgba(200, 164, 77, 0.5) !important;
+  border-bottom: 1px solid rgba(200, 164, 77, 0.5) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* ===== HERO BACKGROUND — back to hero.png which has natural maroon band ===== */
+.hero,
+.section.hero,
+#hero {
+  background-image: url('../assets/backgrounds/hero.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .section.hero,
+  #hero {
+    background-image: url('../assets/backgrounds/portrait-hero.png') !important;
+    background-position: center center !important;
+  }
+}
+
+/* Remove the CSS maroon ribbon — use the natural one from the image */
+.hero__names {
+  background: transparent !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  padding: 0.6rem 1rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* ===== ALIGN NAMES TO CENTER OF MAROON BAND ===== */
+.hero__inner {
+  margin-top: 4rem !important;
+}
+
+.hero__names {
+  margin-top: 1.5rem !important;
+  margin-bottom: 0 !important;
+}
