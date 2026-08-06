@@ -1812,3 +1812,38 @@ main#invitation {
   content: none !important;
   display: none !important;
 }
+
+/* ===== HERO BACKGROUND — hero1.png ===== */
+.hero {
+  background-image: url('../assets/backgrounds/hero1.png') !important;
+  background-size: cover !important;
+  background-position: center center !important;
+}
+.section.hero,
+#hero {
+  background-image: url('../assets/backgrounds/hero1.png') !important;
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .section.hero,
+  #hero {
+    background-image: url('../assets/backgrounds/hero1.png') !important;
+    background-position: center top !important;
+  }
+}
+
+/* ===== HERO BG POSITION — shift up to avoid center maroon band ===== */
+.hero,
+.section.hero,
+#hero {
+  background-position: center 20% !important;
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .section.hero,
+  #hero {
+    background-position: center 15% !important;
+  }
+}
