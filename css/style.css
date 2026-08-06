@@ -188,9 +188,7 @@ img, svg{ display: block; max-width: 100%; }
   position: fixed; inset: 0; z-index: 100;
   display: flex; align-items: center; justify-content: center;
   background-color: #381115;
-  background-image:
-    linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.05) 40%, rgba(0,0,0,.2) 100%),
-    url('../assets/backgrounds/gate.png');
+  background-image: url('../assets/backgrounds/gate.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -199,28 +197,24 @@ img, svg{ display: block; max-width: 100%; }
 }
 .gate.is-open{ pointer-events: none; opacity: 0; }
 
-/* Blur layer */
+/* Blur layer — removed */
 .gate::before{
   content: '';
   position: absolute; inset: 0; z-index: 0;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: rgba(0,0,0,.2);
+  background: transparent;
   transition: opacity 1.1s var(--ease);
 }
 .gate.is-open::before{ opacity: 0; }
 .gate.is-open::after { opacity: 0; transition: opacity 1.1s var(--ease); }
 
-/* Dark fade overlay — animates in as texts appear */
+/* Dark fade overlay — removed */
 .gate::after{
   content: '';
   position: absolute; inset: 0; z-index: 0;
   pointer-events: none;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.32) 40%, rgba(0,0,0,.62) 100%),
-    radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,.38) 100%);
+  background: transparent;
   opacity: 0;
-  animation: gate-overlay-fade 2.2s var(--ease) 0.3s forwards;
+  animation: none;
 }
 @keyframes gate-overlay-fade{
   from{ opacity: 0; }
@@ -1953,4 +1947,163 @@ button.hero__cta {
 .hero__button:hover {
   background: rgba(200, 164, 77, 0.2) !important;
   box-shadow: 0 0 24px rgba(203, 169, 104, 0.3) !important;
+}
+
+/* ===== OPEN INVITATION GATE — remove black gradient, dark text ===== */
+
+/* Remove the dark overlay layers */
+.gate::after {
+  display: none !important;
+  opacity: 0 !important;
+}
+.gate::before {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: transparent !important;
+}
+
+/* Remove dark gradient from gate background */
+.gate {
+  background-image: url('../assets/backgrounds/portrait-hero.png') !important;
+}
+
+/* All gate text — dark/black for visibility */
+.gate__bismillah-arabic,
+.gate__bismillah p,
+.gate__content p[style] {
+  color: #1a0f0f !important;
+  text-shadow: none !important;
+}
+
+.gate__bismillah-translit {
+  color: #3a2020 !important;
+  text-shadow: none !important;
+}
+
+.gate__eyebrow {
+  color: #2a1515 !important;
+  text-shadow: none !important;
+}
+
+/* Names — bigger, dark */
+.gate__names {
+  font-size: clamp(3.8rem, 13vw, 7rem) !important;
+  color: #2a1515 !important;
+  text-shadow: none !important;
+}
+
+.gate__letter {
+  color: #2a1515 !important;
+  text-shadow: none !important;
+}
+
+.gate__amp--animate {
+  color: var(--gold-dark) !important;
+  text-shadow: none !important;
+}
+
+/* Date — normal font weight, larger, dark */
+.gate__date {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-size: 1.1rem !important;
+  color: #2a1515 !important;
+  text-shadow: none !important;
+  letter-spacing: 0.25em !important;
+}
+
+/* Button — dark border and text */
+.gate__button {
+  color: #2a1515 !important;
+  border-color: rgba(42, 21, 21, 0.6) !important;
+  background: rgba(255,255,255,0.15) !important;
+}
+.gate__button:hover {
+  background: rgba(255,255,255,0.3) !important;
+  border-color: var(--gold-dark) !important;
+  color: var(--gold-dark) !important;
+}
+
+.gate__tap-hint {
+  color: rgba(42, 21, 21, 0.5) !important;
+}
+
+/* ===== GATE TEXT — black for visibility, names keep their color ===== */
+.gate__bismillah-arabic,
+.gate__bismillah p,
+.gate__content p {
+  color: #1a1a1a !important;
+  text-shadow: none !important;
+}
+
+.gate__bismillah-translit {
+  color: #333333 !important;
+  text-shadow: none !important;
+}
+
+.gate__eyebrow {
+  color: #2a2a2a !important;
+  text-shadow: none !important;
+}
+
+.gate__date {
+  color: #1a1a1a !important;
+  text-shadow: none !important;
+}
+
+.gate__tap-hint {
+  color: rgba(30, 30, 30, 0.6) !important;
+}
+
+/* Names stay in their gold/white color */
+.gate__names,
+.gate__name-word,
+.gate__letter,
+.gate__amp--animate {
+  color: #fff !important;
+}
+
+/* Button — dark border for visibility on light background */
+.gate__button {
+  color: #1a1a1a !important;
+  border-color: rgba(26, 26, 26, 0.6) !important;
+  background: rgba(255,255,255,0.15) !important;
+}
+.gate__button:hover {
+  border-color: var(--gold) !important;
+  color: var(--gold-dark) !important;
+}
+
+/* ===== GATE NAMES — maroon color ===== */
+.gate__name-word,
+.gate__letter {
+  color: var(--emerald) !important;
+  text-shadow: none !important;
+}
+.gate__amp--animate {
+  color: var(--gold-dark) !important;
+  text-shadow: none !important;
+}
+
+/* ===== MOBILE — shift names & date 5px down ===== */
+@media (max-width: 768px) {
+  .hero__names,
+  .hero__meta {
+    transform: translateY(15px) !important;
+  }
+}
+
+/* ===== HERO META — Poppins Regular ===== */
+.hero__meta {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  text-transform: none !important;
+}
+
+/* ===== HERO NAMES — gold color matching the & ===== */
+.hero__name-line {
+  color: var(--gold-soft) !important;
+  text-shadow: 0 0 30px rgba(203,169,104,.3) !important;
 }
