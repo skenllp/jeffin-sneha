@@ -2107,3 +2107,25 @@ button.hero__cta {
   color: var(--gold-soft) !important;
   text-shadow: 0 0 30px rgba(203,169,104,.3) !important;
 }
+
+/* ===== GATE NAMES — plain text style matching gate paragraphs, single line, maroon =====
+   Note: selector is prefixed with .gate__content to out-specificity the earlier
+   ".gate__content p { color:#1a1a1a !important }" rule, which otherwise silently
+   turns this text black despite this rule's own !important. */
+.gate__content .gate__names-text {
+  font-family: var(--font-script-hero);
+  font-size: clamp(3.2rem, 12vw, 6rem);
+  font-weight: 400;
+  color: #6E232B !important; /* maroon */
+  text-align: center;
+  margin: 0.2em 0;
+  letter-spacing: 0.02em;
+  text-shadow: none;
+  white-space: nowrap;
+  opacity: 0;
+  animation: gate-fade-up 1s var(--ease) 2s forwards;
+}
+.gate__content .gate__amp-text {
+  color: var(--gold-dark) !important;
+  font-family: var(--font-script-hero);
+}
