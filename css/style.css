@@ -145,9 +145,9 @@ img, svg{ display: block; max-width: 100%; }
 
 .gate__bismillah-translit{
   font-family: 'Cormorant Garamond', Georgia, serif;
-  letter-spacing: .28em;
+  letter-spacing: .22em;
   text-transform: uppercase;
-  font-size: .78rem;
+  font-size: .58rem;
   color: rgba(255,255,255,.8);
   margin: 0;
 }
@@ -190,7 +190,7 @@ img, svg{ display: block; max-width: 100%; }
   background-color: #381115;
   background-image:
     linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.05) 40%, rgba(0,0,0,.2) 100%),
-    url('../assets/backgrounds/hero.png');
+    url('../assets/backgrounds/gate.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -239,7 +239,7 @@ img, svg{ display: block; max-width: 100%; }
 .gate__parallax{
   position: absolute; inset: -30px;   /* oversized so edges stay hidden while shifting */
   background-image:
-    url('../assets/backgrounds/hero.png');
+    url('../assets/backgrounds/gate.png');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -249,15 +249,8 @@ img, svg{ display: block; max-width: 100%; }
 }
 .gate__parallax.is-ready{ opacity: 1; }
 
-/* ---- door panels ---- */
-.gate__panel{
-  position: absolute; top: 0; bottom: 0; width: 51%;
-  transition: transform 1.4s cubic-bezier(.76,0,.24,1);
-  z-index: 2;
-  overflow: hidden;
-}
-.gate__panel--left{ left: 0; }
-.gate__panel--right{ right: 0; }
+/* door panels removed per design update — image now shows fully, no red overlay */
+.gate__panel{ display: none; }
 .gate__arch{ width: 100%; height: 100%; }
 
 .gate.is-open .gate__panel--left { transform: translateX(-105%); }
@@ -320,7 +313,7 @@ img, svg{ display: block; max-width: 100%; }
   font-family: var(--font-script-hero); font-weight: 400;
   font-size: clamp(3.6rem, 12vw, 6rem);
   line-height: 1.5;
-  color: #fff; margin: 0 0 .25em;
+  color: var(--emerald); margin: 0 0 .25em;
   letter-spacing: 0;
   display: flex; align-items: baseline; justify-content: center;
   flex-wrap: wrap; gap: 0 .3em;
@@ -333,8 +326,8 @@ img, svg{ display: block; max-width: 100%; }
   transform: translateY(22px) rotate(-4deg);
   animation: letter-land 0.55s cubic-bezier(.22,.61,.36,1) forwards;
   text-shadow:
-    0 2px 24px rgba(0,0,0,.6),
-    0 0 50px rgba(180,120,60,.25);
+    0 2px 18px rgba(255,255,255,.55),
+    0 0 30px rgba(255,255,255,.3);
   will-change: transform, opacity;
 }
 @keyframes letter-land{
@@ -360,8 +353,8 @@ img, svg{ display: block; max-width: 100%; }
   animation: name-heartbeat 3.2s ease-in-out 3.4s infinite;
 }
 @keyframes name-heartbeat{
-  0%,100%{ text-shadow: 0 2px 24px rgba(0,0,0,.6), 0 0 50px rgba(180,120,60,.2); }
-  50%     { text-shadow: 0 2px 24px rgba(0,0,0,.6), 0 0 90px rgba(203,169,104,.45); }
+  0%,100%{ text-shadow: 0 2px 18px rgba(255,255,255,.5), 0 0 30px rgba(255,255,255,.25); }
+  50%     { text-shadow: 0 2px 18px rgba(255,255,255,.65), 0 0 45px rgba(255,255,255,.4); }
 }
 
 /* ---- date ---- */
@@ -460,6 +453,8 @@ img, svg{ display: block; max-width: 100%; }
 .corner--br{ bottom: 0; right: 0; transform: rotate(180deg); }
 @media (max-width: 640px){ .corner{ width: 56px; height: 56px; } }
 
+
+
 .section{
   position: relative;
   padding: clamp(4.5rem, 10vw, 7rem) 1.5rem;
@@ -534,8 +529,8 @@ img, svg{ display: block; max-width: 100%; }
 .hero__overlay{
   position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 40%, rgba(0,0,0,.5) 100%),
-    radial-gradient(ellipse at center, transparent 20%, rgba(0,0,0,.45) 100%);
+    linear-gradient(to bottom, rgba(0,0,0,.55) 0%, rgba(0,0,0,.4) 40%, rgba(0,0,0,.62) 100%),
+    radial-gradient(ellipse at center, rgba(0,0,0,.18) 20%, rgba(0,0,0,.55) 100%);
   z-index: 1;
 }
 
@@ -1612,16 +1607,16 @@ a:focus-visible, button:focus-visible{
   .gate__button{ padding: .7rem 1.8rem; }
 }
 
-/* ===== MOBILE BACKGROUND — portrait-hero.png ===== */
+/* ===== MOBILE BACKGROUND — gate-portrait.png for gate, portrait-hero.png for hero ===== */
 @media (max-width: 768px) {
   .gate {
     background-image:
       linear-gradient(to bottom, rgba(0,0,0,.15) 0%, rgba(0,0,0,.05) 40%, rgba(0,0,0,.2) 100%),
-      url('../assets/backgrounds/portrait-hero.png') !important;
+      url('../assets/backgrounds/gate-portrait.png') !important;
     background-position: center center !important;
   }
   .gate__parallax {
-    background-image: url('../assets/backgrounds/portrait-hero.png') !important;
+    background-image: url('../assets/backgrounds/gate-portrait.png') !important;
   }
   .hero {
     background-image: url('../assets/backgrounds/portrait-hero.png') !important;
@@ -1761,9 +1756,9 @@ main#invitation {
 .gate__bismillah-arabic,
 .gate__bismillah p,
 .gate__content p[style] {
-  font-size: clamp(1.05rem, 3.2vw, 1.25rem) !important;
-  line-height: 1.7 !important;
-  max-width: 240px !important;
+  font-size: clamp(.8rem, 3vw, 1rem) !important;
+  line-height: 1.5 !important;
+  max-width: 300px !important;
   margin: 0 auto !important;
   text-align: center !important;
   word-break: normal;
@@ -1771,9 +1766,49 @@ main#invitation {
 
 /* Genesis reference */
 .gate__bismillah-translit {
-  font-size: 0.75rem !important;
-  letter-spacing: 0.2em;
+  font-size: 0.55rem !important;
+  letter-spacing: 0.18em;
   text-align: center;
   margin: 0 auto;
   opacity: 0.8;
+}
+
+/* ===== HERO FIXES ===== */
+
+/* 1. Names on one line: Sneha & Jeffin */
+.hero__names {
+  flex-direction: row !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: 0.1em !important;
+  flex-wrap: nowrap !important;
+}
+
+.hero__name-line {
+  font-size: clamp(2.4rem, 9vw, 5.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+.hero__amp-line {
+  font-size: clamp(1.8rem, 6vw, 3.5rem) !important;
+  line-height: 1.2 !important;
+}
+
+/* 2. Remove maroon band — fix invitation-backgrounds bleeding into hero */
+.section.hero,
+#hero {
+  background-color: transparent !important;
+  background-image: url('../assets/backgrounds/portrait-hero.png') !important;
+}
+
+/* 3. Remove excess bottom space */
+.hero {
+  padding-bottom: 2rem !important;
+  justify-content: center !important;
+}
+
+/* 4. Prevent invitation-backgrounds from affecting hero section */
+.section.hero::after {
+  content: none !important;
+  display: none !important;
 }
