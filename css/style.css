@@ -746,15 +746,16 @@ img, svg{ display: block; max-width: 100%; }
 
 .couple-card__relation{
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--ink-soft);
+  font-style: normal;
+  font-size: .95rem;
+  color: var(--ink);
   margin: .7em 0 .15em;
+  font-weight: 400;
 }
 
 .couple-card__parents{
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: .98rem;
+  font-size: .95rem;
   font-weight: 400;
   color: var(--ink);
   margin: 0 0 .4em;
@@ -763,11 +764,12 @@ img, svg{ display: block; max-width: 100%; }
 
 .couple-card__address{
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: .88rem;
-  color: var(--ink-soft);
+  font-size: .95rem;
+  color: var(--ink);
   margin: 0 0 .35em;
-  line-height: 1.65;
+  line-height: 1.6;
   letter-spacing: .015em;
+  font-weight: 400;
 }
 
 .couple-card--bride,
