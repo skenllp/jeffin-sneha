@@ -1927,11 +1927,11 @@ main#invitation {
 
 /* Bigger names to fill the maroon band */
 .hero__name-line {
-  font-size: clamp(4rem, 13vw, 8.5rem) !important;
+  font-size: clamp(4.5rem, 14vw, 9.5rem) !important;
 }
 
 .hero__amp-line {
-  font-size: clamp(3rem, 9vw, 5.5rem) !important;
+  font-size: clamp(3.5rem, 10vw, 6.5rem) !important;
 }
 
 /* Brighter, bigger date */
@@ -2138,11 +2138,11 @@ button.hero__cta {
   }
   
   .hero__name-line {
-    font-size: clamp(3.8rem, 13vw, 7.8rem) !important;
+    font-size: clamp(4.2rem, 14vw, 8.5rem) !important;
   }
   
   .hero__amp-line {
-    font-size: clamp(2.8rem, 9vw, 5rem) !important;
+    font-size: clamp(3.2rem, 10vw, 5.8rem) !important;
   }
   
   .hero__meta {
