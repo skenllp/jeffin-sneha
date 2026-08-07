@@ -599,7 +599,7 @@ img, svg{ display: block; max-width: 100%; }
   letter-spacing: .22em;
   text-transform: uppercase;
   font-size: .82rem;
-  font-weight: 300;
+  font-weight: 200;
   color: rgba(255,255,255,.7);
   margin: .6em 0 1.8em;
 }
@@ -2158,7 +2158,7 @@ button.hero__cta {
 /* ===== HERO META — Poppins Regular ===== */
 .hero__meta {
   font-family: 'Poppins', sans-serif !important;
-  font-weight: 300 !important;
+  font-weight: 200 !important;
   letter-spacing: 0.05em !important;
   text-transform: none !important;
 }
