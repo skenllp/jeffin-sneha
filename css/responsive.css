@@ -55,44 +55,6 @@
 
   .hero { padding: 120px 18px 90px; }
 
-  /* Gate content spacing for mobile */
-  .gate__content {
-    padding: 3rem 1.5rem;
-  }
-  
-  .gate__bismillah {
-    margin-bottom: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .gate__bismillah-arabic {
-    font-size: clamp(0.8rem, 3vw, 1rem) !important;
-    line-height: 1.6 !important;
-  }
-  
-  .gate__bismillah-translit {
-    font-size: 0.5rem;
-    margin-top: 0.5rem;
-  }
-  
-  .gate__eyebrow {
-    font-size: 0.7rem;
-    margin-bottom: 0.8rem;
-  }
-  
-  .gate__names-text {
-    margin-bottom: 0.8rem;
-  }
-  
-  .gate__date {
-    margin-bottom: 1.5rem;
-  }
-  
-  .gate__button {
-    padding: 0.9rem 2rem;
-    font-size: 0.85rem;
-  }
-
   /* Stack name blocks vertically on small screens */
   .hero__names {
     flex-direction: column;
