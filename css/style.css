@@ -560,8 +560,20 @@ img, svg{ display: block; max-width: 100%; }
   font-weight: 500;
   color: #1a1a1a;
   margin: 0 0 2rem;
-  margin-top: 50px;
+  margin-top: 80px;
   text-shadow: none;
+}
+
+/* invitation text above names */
+.hero__invitation-text{
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 400;
+  color: #000;
+  letter-spacing: .08em;
+  margin: 0 0 1.2rem;
+  text-shadow: none;
+  line-height: 1.5;
 }
 
 /* Names — custom script (Edwardian Script ITC), huge, white */
