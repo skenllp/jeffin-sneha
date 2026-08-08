@@ -216,7 +216,7 @@
     });
   }
 
-  /* ---------- RSVP — attendance toggle, counter, WhatsApp redirect ---------- */
+  /* ---------- RSVP — attendance toggle, counter, Google Sheet + WhatsApp ---------- */
   (function () {
     var form     = document.getElementById("rsvpForm");
     if (!form) return;
@@ -229,6 +229,23 @@
     var nameEl   = document.getElementById("rsvpName");
     var msgEl    = document.getElementById("rsvpMessage");
     var WA_NUMBER = "916235440983"; // Cheruvathoor Family — no + sign for wa.me links
+
+    // Paste the "Web app" URL you get after deploying the Apps Script
+    // (see google-apps-script/Code.gs + SETUP_RSVP.md) here:
+    var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbytOPyB0q_nRGFGFFKNsKBpbnbG5PPJ5IPReHA_YTP7pjUGuJ1XbFbrtyO3WWsTYC5W/exec";
+
+    function submitToSheet(data) {
+      if (!SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf("PASTE_") === 0) return;
+      var body = new URLSearchParams(data);
+      // Apps Script web apps don't return CORS headers, so we fire-and-forget
+      // with no-cors — the row still gets written and the emails still get sent.
+      fetch(SHEET_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString()
+      }).catch(function () { /* silently ignore network errors */ });
+    }
 
     // ---- attendance toggle ----
     function setAttendance(attending) {
@@ -291,6 +308,14 @@
       }
       lines.push("");
       lines.push("_Sent from the wedding invitation_");
+
+      // Save the RSVP to the Google Sheet (also emails the family)
+      submitToSheet({
+        name: name,
+        attending: attending ? "Yes" : "No",
+        guests: attending ? count : 0,
+        message: message
+      });
 
       var text = encodeURIComponent(lines.join("\n"));
       window.open("https://wa.me/" + WA_NUMBER + "?text=" + text, "_blank");
