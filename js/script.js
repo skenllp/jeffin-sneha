@@ -231,7 +231,7 @@
 
     // Paste the "Web app" URL you get after deploying the Apps Script
     // (see google-apps-script/Code.gs + SETUP_RSVP.md) here:
-    var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbytOPyB0q_nRGFGFFKNsKBpbnbG5PPJ5IPReHA_YTP7pjUGuJ1XbFbrtyO3WWsTYC5W/exec";
+    var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbxn1UOQbEEE9plkf6JqEPJPpSVFXXQHdf6mNvt-_NkDdliFzm6e5I0eR15Efh6agI_U/exec";
 
     function submitToSheet(data) {
       if (!SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf("PASTE_") === 0) {
