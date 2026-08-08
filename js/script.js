@@ -216,7 +216,7 @@
     });
   }
 
-  /* ---------- RSVP — attendance toggle, counter, Google Sheet + WhatsApp ---------- */
+  /* ---------- RSVP — attendance toggle, counter, and Google Sheet submission ---------- */
   (function () {
     var form     = document.getElementById("rsvpForm");
     if (!form) return;
@@ -228,7 +228,6 @@
     var countEl  = document.getElementById("rsvpCount");
     var nameEl   = document.getElementById("rsvpName");
     var msgEl    = document.getElementById("rsvpMessage");
-    var WA_NUMBER = "916235440983"; // Cheruvathoor Family — no + sign for wa.me links
 
     // Paste the "Web app" URL you get after deploying the Apps Script
     // (see google-apps-script/Code.gs + SETUP_RSVP.md) here:
@@ -273,7 +272,7 @@
       });
     }
 
-    // ---- submit → WhatsApp ----
+    // ---- submit RSVP to Google Sheets ----
     form.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -292,23 +291,6 @@
       var count     = countEl ? (parseInt(countEl.value, 10) || 1) : 1;
       var message   = msgEl ? msgEl.value.trim() : "";
 
-      // build the WhatsApp message
-      var lines = [];
-      lines.push("Greetings \uD83C\uDF39");
-      lines.push("");
-      lines.push("*Sneha & Jeffin — Betrothal & Wedding RSVP*");
-      lines.push("");
-      lines.push("*Name:* " + name);
-      lines.push("*Attendance:* " + (attending ? "\u2705 Joyfully Accepts" : "\u274C Regretfully Declines"));
-      if (attending) {
-        lines.push("*Number of Guests:* " + count);
-      }
-      if (message) {
-        lines.push("*Message:* " + message);
-      }
-      lines.push("");
-      lines.push("_Sent from the wedding invitation_");
-
       // Save the RSVP to the Google Sheet (also emails the family)
       submitToSheet({
         name: name,
@@ -317,8 +299,8 @@
         message: message
       });
 
-      var text = encodeURIComponent(lines.join("\n"));
-      window.open("https://wa.me/" + WA_NUMBER + "?text=" + text, "_blank");
+      // Do not open WhatsApp here — the Google Sheet submission is the RSVP flow.
+      // You can optionally show a success state here if needed.
     });
 
     // clear error state on input
