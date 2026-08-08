@@ -236,14 +236,21 @@
     function submitToSheet(data) {
       if (!SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf("PASTE_") === 0) return;
       var body = new URLSearchParams(data);
-      // Apps Script web apps don't return CORS headers, so we fire-and-forget
-      // with no-cors — the row still gets written and the emails still get sent.
-      fetch(SHEET_ENDPOINT, {
+
+      return fetch(SHEET_ENDPOINT, {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        mode: "cors",
+        headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
         body: body.toString()
-      }).catch(function () { /* silently ignore network errors */ });
+      }).then(function (response) {
+        if (!response.ok) {
+          throw new Error("RSVP request failed: " + response.status);
+        }
+        return response;
+      }).catch(function (error) {
+        console.error("RSVP submission failed:", error);
+        window.alert("RSVP could not be submitted. Please check the Google Sheets link or try again.");
+      });
     }
 
     // ---- attendance toggle ----
@@ -297,10 +304,14 @@
         attending: attending ? "Yes" : "No",
         guests: attending ? count : 0,
         message: message
+      }).then(function () {
+        form.reset();
+        setAttendance(true);
+        if (countEl) countEl.value = "1";
+        if (nameEl) nameEl.value = "";
+        if (msgEl) msgEl.value = "";
+        window.alert("Thank you! Your RSVP has been submitted.");
       });
-
-      // Do not open WhatsApp here — the Google Sheet submission is the RSVP flow.
-      // You can optionally show a success state here if needed.
     });
 
     // clear error state on input
