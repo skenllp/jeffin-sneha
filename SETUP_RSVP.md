@@ -50,3 +50,36 @@ before — this runs alongside it.
 Open `google-apps-script/Code.gs` in the Apps Script editor and edit the
 `NOTIFY_EMAILS` list at the top, then click **Deploy → Manage deployments
 → Edit → New version → Deploy** to push the change live.
+
+## Troubleshooting: RSVPs not appearing in the Sheet
+
+**Do not add `mode: "cors"` or check `response.ok` on the fetch call.**
+Google Apps Script web apps never send back CORS headers, so the browser
+blocks the response before your code can read it — `response.ok` will
+never be true, even when the row was written successfully. The form
+in this project uses `mode: "no-cors"` on purpose: it's a fire‑and‑forget
+request, so you can't inspect the result in the browser, but it's the
+only reliable way to reach `doPost()` from a page hosted on a different
+domain than script.google.com. If you (or an AI tool) ever "fix" a CORS
+warning by switching to `mode: "cors"`, the form will look fine but stop
+writing to the Sheet — that's exactly what happened here.
+
+If RSVPs still aren't showing up after confirming the above, check:
+
+1. **Test the endpoint directly.** Paste your Web app URL into a browser
+   address bar and load it. You should see
+   `{"status":"RSVP endpoint is live"}`. If you get a Google sign-in
+   page or an error instead, the deployment's "Who has access" isn't
+   set to **Anyone** — redeploy with that setting.
+2. **Redeploy after any edit.** In Apps Script, clicking Save does *not*
+   push changes to the live URL. After editing `Code.gs`, go to
+   **Deploy → Manage deployments → Edit (pencil icon) → Version: New
+   version → Deploy**.
+3. **Check the Executions log.** In the Apps Script editor, open the
+   clock icon ("Executions") on the left. Submit a test RSVP from the
+   site — a `doPost` execution should appear within a few seconds. If
+   nothing shows up, the request isn't reaching the script (double‑check
+   the URL pasted into `js/script.js` matches the deployment exactly).
+4. **Confirm the URL in `js/script.js`.** It must end in `/exec`, not
+   `/dev` (a `/dev` URL only works for you while logged into Apps
+   Script, not for guests visiting the site).

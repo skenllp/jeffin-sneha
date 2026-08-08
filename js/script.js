@@ -234,22 +234,26 @@
     var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbytOPyB0q_nRGFGFFKNsKBpbnbG5PPJ5IPReHA_YTP7pjUGuJ1XbFbrtyO3WWsTYC5W/exec";
 
     function submitToSheet(data) {
-      if (!SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf("PASTE_") === 0) return;
+      if (!SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf("PASTE_") === 0) {
+        return Promise.resolve();
+      }
       var body = new URLSearchParams(data);
 
+      // Google Apps Script web apps don't send back CORS headers, so the
+      // browser can never let us read the response (mode: 'cors' will
+      // always fail here, even when the row is written successfully).
+      // 'no-cors' is the standard, reliable way to POST to Apps Script:
+      // it's fire-and-forget, but the request — and therefore doPost() —
+      // still goes through.
       return fetch(SHEET_ENDPOINT, {
         method: "POST",
-        mode: "cors",
+        mode: "no-cors",
         headers: { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8" },
         body: body.toString()
-      }).then(function (response) {
-        if (!response.ok) {
-          throw new Error("RSVP request failed: " + response.status);
-        }
-        return response;
       }).catch(function (error) {
+        // Only a genuine network failure (offline, blocked domain, etc.)
+        // lands here — a successful write never reaches this branch.
         console.error("RSVP submission failed:", error);
-        window.alert("RSVP could not be submitted. Please check the Google Sheets link or try again.");
       });
     }
 
